@@ -717,7 +717,13 @@ a:hover {
 
 .service-box .service-ico {
   margin-bottom: 1rem;
+  text-align: center;
   color: #1e1e1e;
+}
+
+.service-ico img{
+  height: 100px;
+  
 }
 
 .service-box .ico-circle {
