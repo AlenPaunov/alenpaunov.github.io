@@ -1,871 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <title>AlenPaunov</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-  <!-- <a href="http://www.freepik.com">Designed by pch.vector / Freepik</a> -->
-  <!-- Styles -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet">
-  <!-- <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet"> -->
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alen Paunov — AI Integration Strategist & Educational Expert</title>
+  <meta name="description" content="Alen Paunov helps organisations and educators turn AI from hype into strategy, training and real products. 10+ years in education, 12,500+ students taught." />
+  <meta property="og:title" content="Alen Paunov — AI Integration Strategist" />
+  <meta property="og:description" content="Turning AI from buzzword into working advantage. Strategy, education, training." />
+  <meta property="og:type" content="website" />
 
-<body id="page-top">
-  <!--/ Navigation Start /-->
-  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">Alen Paunov</a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307070b'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+
+  <!-- grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a class="nav__logo magnetic" href="#top" aria-label="Alen Paunov — home">
+      <span class="nav__logo-mark">AP</span><span class="nav__logo-cursor">_</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="magnetic" href="#about" data-i18n="nav.about">About</a>
+      <a class="magnetic" href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a class="magnetic" href="#journey" data-i18n="nav.journey">Journey</a>
+      <a class="magnetic" href="#contact" data-i18n="nav.contact">Contact</a>
+      <a class="magnetic nav__gallery" href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
+    </nav>
+
+    <div class="nav__right">
+      <button class="lang-toggle magnetic" id="langToggle" aria-label="Switch language">
+        <span class="lang-toggle__opt is-active" data-lang="en">EN</span>
+        <span class="lang-toggle__sep">/</span>
+        <span class="lang-toggle__opt" data-lang="bg">BG</span>
       </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Home</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile overlay menu -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Mobile">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
+    </nav>
+    <p class="menu-overlay__meta mono">Sofia, Bulgaria — <span data-i18n="hero.worldwide">working worldwide</span></p>
+  </div>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--magenta" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__kicker mono" data-i18n="hero.kicker">// AI Integration Strategist &amp; Educational Expert</p>
+
+        <h1 class="hero__title" aria-label="Alen Paunov">
+          <span class="hero__title-line"><span class="hero__title-word">ALEN</span></span>
+          <span class="hero__title-line hero__title-line--outline"><span class="hero__title-word">PAUNOV</span></span>
+        </h1>
+
+        <p class="hero__sub">
+          <span data-i18n="hero.sub">I help companies and educators turn AI from hype into</span>
+          <span class="hero__rotator"><span class="hero__rotator-word" id="rotatorWord">real strategy</span></span>
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary magnetic" href="#contact" data-i18n="hero.cta1">Let's talk</a>
+          <a class="btn btn--ghost magnetic" href="#expertise" data-i18n="hero.cta2">Explore my work</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll mono" aria-hidden="true">
+        <span data-i18n="hero.scroll">scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- marquee divider -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span class="marquee__item">AI STRATEGY <i>✦</i> EDUCATION <i>✦</i> TRAINING <i>✦</i> PRODUCT <i>✦</i> <b>PEOPLE FIRST</b> <i>✦</i> </span>
+        <span class="marquee__item">AI STRATEGY <i>✦</i> EDUCATION <i>✦</i> TRAINING <i>✦</i> PRODUCT <i>✦</i> <b>PEOPLE FIRST</b> <i>✦</i> </span>
+        <span class="marquee__item">AI STRATEGY <i>✦</i> EDUCATION <i>✦</i> TRAINING <i>✦</i> PRODUCT <i>✦</i> <b>PEOPLE FIRST</b> <i>✦</i> </span>
+        <span class="marquee__item">AI STRATEGY <i>✦</i> EDUCATION <i>✦</i> TRAINING <i>✦</i> PRODUCT <i>✦</i> <b>PEOPLE FIRST</b> <i>✦</i> </span>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about">
+      <div class="section__inner">
+        <div class="about__grid">
+          <div class="about__text">
+            <p class="section__label mono reveal"><span data-i18n="about.label">01 — About</span></p>
+            <h2 class="section__title reveal" data-i18n="about.title">Technology is the tool. People are the point.</h2>
+            <div class="reveal">
+              <p data-i18n="about.p1">For more than a decade I've lived at the intersection of education and technology — teaching over 12,500 students, directing programmes at Bulgaria's leading tech academies, and building TeachMe as CEO and co-founder.</p>
+              <p data-i18n="about.p2">Today I help organisations integrate AI the way it actually works: strategically, ethically, and with people at the centre. Not chasing tools — building capability.</p>
+              <p data-i18n="about.p3">Outside of work I'm a father, a passionate cook and a relentless reader. The best systems I know — classrooms, companies, families — all run on the same thing: trust.</p>
+            </div>
+          </div>
+          <figure class="about__portrait reveal">
+            <div class="about__portrait-frame">
+              <img src="img/portrait-about.png" alt="Portrait of Alen Paunov" loading="lazy" />
+            </div>
+            <figcaption class="mono">Alen Paunov — Sofia, BG</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERTISE ===== -->
+    <section class="section expertise" id="expertise">
+      <div class="section__inner">
+        <p class="section__label mono reveal"><span data-i18n="exp.label">02 — Expertise</span></p>
+        <h2 class="section__title reveal" data-i18n="exp.title">What I bring to the table</h2>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card__num mono">001</span>
+            <h3 data-i18n="exp.c1t">AI Integration Strategy</h3>
+            <p data-i18n="exp.c1d">Audits, roadmaps and hands-on guidance that take AI from a slide deck into your daily operations.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__num mono">002</span>
+            <h3 data-i18n="exp.c2t">AI in Education</h3>
+            <p data-i18n="exp.c2d">Curriculum design and AI-powered learning experiences that make educators faster and learners stronger.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__num mono">003</span>
+            <h3 data-i18n="exp.c3t">Technical Training</h3>
+            <p data-i18n="exp.c3d">Workshops and live trainings for teams — from prompt literacy to building with LLM APIs.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__num mono">004</span>
+            <h3 data-i18n="exp.c4t">Product Development</h3>
+            <p data-i18n="exp.c4d">From idea to launch — I've built and scaled educational products used by thousands of people.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section stats" id="stats">
+      <div class="section__inner">
+        <div class="stats__grid">
+          <div class="stat reveal">
+            <span class="stat__num" data-count="12500" data-suffix="+">0</span>
+            <span class="stat__label" data-i18n="stats.s1">students taught</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="10" data-suffix="">0</span>
+            <span class="stat__label" data-i18n="stats.s2">years in education</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="250" data-suffix="+">0</span>
+            <span class="stat__label" data-i18n="stats.s3">live lessons</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="6" data-suffix="">0</span>
+            <span class="stat__label" data-i18n="stats.s4">media features</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== JOURNEY ===== -->
+    <section class="section journey" id="journey">
+      <div class="section__inner">
+        <p class="section__label mono reveal"><span data-i18n="jr.label">03 — Journey</span></p>
+        <h2 class="section__title reveal" data-i18n="jr.title">The road so far</h2>
+
+        <div class="timeline">
+          <div class="timeline__line" aria-hidden="true"></div>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__date mono">2018 — 2021</span>
+            <h3>SoftUni</h3>
+            <p class="tl-item__role" data-i18n="jr.t1r">Educational Director</p>
+            <p data-i18n="jr.t1d">Led programmes at Bulgaria's largest software university.</p>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__date mono">2020 — <span data-i18n="jr.now">now</span></span>
+            <h3>TeachMe</h3>
+            <p class="tl-item__role" data-i18n="jr.t2r">CEO &amp; Co-founder</p>
+            <p data-i18n="jr.t2d">Building a platform that connects learners with the right teachers.</p>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__date mono">2021 — 2022</span>
+            <h3>ARC Academy</h3>
+            <p class="tl-item__role" data-i18n="jr.t3r">Educational Director</p>
+            <p data-i18n="jr.t3d">Directed creative-tech education for game art &amp; design.</p>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__date mono">2022 — <span data-i18n="jr.now2">now</span></span>
+            <h3>Sirma Academy</h3>
+            <p class="tl-item__role" data-i18n="jr.t5r">Educational Director</p>
+            <p data-i18n="jr.t5d">Leading award-winning, AI-first engineering education at Sirma Group.</p>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-item__date mono">2023 — <span data-i18n="jr.now3">now</span></span>
+            <h3 data-i18n="jr.t4t">AI Integration</h3>
+            <p class="tl-item__role" data-i18n="jr.t4r">Strategist &amp; Consultant</p>
+            <p data-i18n="jr.t4d">Helping organisations adopt AI with strategy, training and measurable impact.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== APPEARANCES ===== -->
+    <section class="section appear" id="appearances">
+      <div class="section__inner">
+        <p class="section__label mono reveal"><span data-i18n="ap.label">04 — Appearances</span></p>
+        <h2 class="section__title reveal" data-i18n="ap.title">Talks, media &amp; lectures</h2>
+
+        <ul class="appear__list">
+          <li class="appear__row reveal">
+            <a href="https://www.economy.bg/business/view/63765/Alen-Paunov-ot-Sirma-Academy-Kakvo-nauchihme-dokato-obuchavahme-drugite" target="_blank" rel="noopener"
+               data-img="https://i.newsroom.bg/uploads/photo_assets/2026/2026-04-17/o_IMG-0034-2-3057c8651d.JPG">
+              <span class="appear__tag mono">PRESS</span>
+              <span class="appear__title">Какво научихме, докато обучавахме другите?</span>
+              <span class="appear__meta mono">Economy.bg · 2026</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
+          <li class="appear__row reveal">
+            <a href="https://tech.offnews.bg/softuer/alen-paunov-sirma-academy-ai-ne-otnema-rabotni-mesta-toj-gi-prenare-23446.html" target="_blank" rel="noopener"
+               data-img="https://i2.offnews.bg/tech/events/2025/10/14/23446/1760453921_2_800x*.jpg">
+              <span class="appear__tag mono">PRESS</span>
+              <span class="appear__title">AI не отнема работни места, той ги пренарежда</span>
+              <span class="appear__meta mono">OFFnews · 2025</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#experience">Experience</a>
+          <li class="appear__row reveal">
+            <a href="https://www.youtube.com/watch?v=xwQ-4JJi9PQ" target="_blank" rel="noopener"
+               data-img="https://i.ytimg.com/vi/xwQ-4JJi9PQ/hqdefault.jpg">
+              <span class="appear__tag mono">LECTURE</span>
+              <span class="appear__title">AI Tools Introduction — Practical AI</span>
+              <span class="appear__meta mono">Sirma Academy · 2025</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#things-i-do">Work</a>
+          <li class="appear__row reveal">
+            <a href="https://www.youtube.com/watch?v=-P3bE9-IkzM" target="_blank" rel="noopener"
+               data-img="https://i.ytimg.com/vi/-P3bE9-IkzM/hqdefault.jpg">
+              <span class="appear__tag mono">PODCAST</span>
+              <span class="appear__title">Sirma Academy и кариерното развитие</span>
+              <span class="appear__meta mono">Старт БГ Подкаст</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Projects</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#blog">Articles</a>
+          <li class="appear__row reveal">
+            <a href="https://www.bloombergtv.bg/a/16-biznes-start/148122-edin-miliard-dolara-za-izsledovatel-ai-vse-poveche-prilicha-na-golyam-balon" target="_blank" rel="noopener"
+               data-img="https://www.bloombergtv.bg/media/files/images/original/article/658/1dbbde68b5ca3ca6843c368715722658-PAUNOV.jpg">
+              <span class="appear__tag mono">TV</span>
+              <span class="appear__title">AI все повече прилича на голям балон</span>
+              <span class="appear__meta mono">Bloomberg TV · 2025</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact Me</a>
+          <li class="appear__row reveal">
+            <a href="https://www.bloombergtv.bg/a/28-update/142037-sirma-academy-startira-prakticheski-kursove-po-izkustven-intelekt" target="_blank" rel="noopener"
+               data-img="https://www.bloombergtv.bg/media/files/images/original/article/c74/2c2ac8e5164f4ebf8bdde02473513c74-250308_UPDATE_SABOTA.mxf.1741362603_4.jpg">
+              <span class="appear__tag mono">TV</span>
+              <span class="appear__title">Sirma Academy стартира практически AI курсове</span>
+              <span class="appear__meta mono">Bloomberg TV · 2025</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.youtube.com/watch?v=YCKp4DJq5Vc" target="_blank" rel="noopener"
+               data-img="https://i.ytimg.com/vi/YCKp4DJq5Vc/hqdefault.jpg">
+              <span class="appear__tag mono">PODCAST</span>
+              <span class="appear__title">Вход в IT индустрията през 2025</span>
+              <span class="appear__meta mono">ГИТИ · 2025</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://bnr.bg/hristobotev/post/101410930" target="_blank" rel="noopener"
+               data-img="https://static.bnr.bg/gallery/cr/medium/239941cab3329ee0c3ae5c85991f71ad.jpg">
+              <span class="appear__tag mono">RADIO</span>
+              <span class="appear__title">Учителите са пътеводната светлина на всяка нация</span>
+              <span class="appear__meta mono">БНР · Христо Ботев</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.investor.bg/imenata-na-biznesa/263/a/softuernoto-injenerstvo-e-syzdateliat-na-bydeshteto-na-choveshkata-civilizaciia-312117/" target="_blank" rel="noopener"
+               data-img="https://www.investor.bg/media/files/resized/article/640x360/876/4d900ee431966d2bec1492b9c10db876-0000312117-article3.jpg">
+              <span class="appear__tag mono">PRESS</span>
+              <span class="appear__title">Софтуерното инженерство е създателят на бъдещето</span>
+              <span class="appear__meta mono">Investor.bg</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.168chasa.bg/article/8355133" target="_blank" rel="noopener"
+               data-img="https://cache2.24chasa.bg/Images/Cache/146/Image_8355146_305_0.jpg">
+              <span class="appear__tag mono">PRESS</span>
+              <span class="appear__title">Най-важното, за да станеш програмист</span>
+              <span class="appear__meta mono">168 часа</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.tvevropa.com/2019/12/koi-sa-populyarnite-softuerni-tehnologii/" target="_blank" rel="noopener"
+               data-img="https://www.tvevropa.com/wp-content/uploads/2019/12/bd1-3-620x353.jpg">
+              <span class="appear__tag mono">TV</span>
+              <span class="appear__title">Кои са популярните софтуерни технологии?</span>
+              <span class="appear__meta mono">TV Europa · 2019</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://mmtvmusic.com/mm-player/most-viewed/shows/razgovori-za-bydeshteto-s-alen-paunov/" target="_blank" rel="noopener"
+               data-img="https://cdnt.onnetwork.tv/poster/4/0/402884_6.jpg">
+              <span class="appear__tag mono">TV</span>
+              <span class="appear__title">Разговори за бъдещето</span>
+              <span class="appear__meta mono">MM TV</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.dnes.bg/obrazovanie/2021/03/16/platforma-za-obuchenie-izkarva-chastnite-uroci-na-svetlo.483403" target="_blank" rel="noopener">
+              <span class="appear__tag mono">PRESS</span>
+              <span class="appear__title">Платформа за обучение изкарва частните уроци на светло</span>
+              <span class="appear__meta mono">Dnes.bg · 2021</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="appear__row reveal">
+            <a href="https://www.youtube.com/watch?v=O7ow6RirzcY" target="_blank" rel="noopener"
+               data-img="https://i.ytimg.com/vi/O7ow6RirzcY/hqdefault.jpg">
+              <span class="appear__tag mono">VIDEO</span>
+              <span class="appear__title">Програмиране за начинаещи с C# — урок на живо</span>
+              <span class="appear__meta mono">TeachMe · YouTube</span>
+              <span class="appear__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
-  <!--/ Navigation End /-->
 
-  <!--/ Intro Start /-->
-  <div id="home" class="intro route bg-image">
-    <div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">Alen Paunov</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">TeachMe Co-Founder,Teacher,Technical
-              Trainer,Developer,Designer,Dad,Dad :)</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+      <!-- floating hover preview -->
+      <img class="appear__preview" id="appearPreview" src="" alt="" aria-hidden="true" />
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="section__inner">
+        <p class="section__label mono reveal"><span data-i18n="ct.label">05 — Contact</span></p>
+        <h2 class="contact__title reveal">
+          <span data-i18n="ct.title1">Let's build</span><br />
+          <span class="contact__title-accent" data-i18n="ct.title2">what's next.</span>
+        </h2>
+
+        <div class="contact__actions reveal">
+          <a class="btn btn--primary btn--lg magnetic" href="mailto:alen.paunov@gmail.com">alen.paunov@gmail.com</a>
+          <a class="btn btn--ghost btn--lg magnetic" href="tel:+359877985474">+359 877 985 474</a>
         </div>
+
+        <ul class="contact__socials reveal">
+          <li><a class="magnetic" href="https://www.linkedin.com/in/alen-paunov/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a class="magnetic" href="https://www.facebook.com/alen.v.paunov/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a class="magnetic" href="https://www.instagram.com/alenpaun/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+
+        <p class="contact__meta mono reveal">Sofia, Bulgaria — <span data-i18n="hero.worldwide">working worldwide</span></p>
       </div>
-    </div>
-  </div>
-  <!--/ Intro End /-->
-  <!--/ About Me Start /-->
-  <section class="about-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="box-shadow-full">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img" id="about">
-                      <img src="img/face.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Alen Paunov</span></p>
-                      <p><span class="title-s">Email: </span> <span>alen.paunov@gmail.com</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill-mf">
-                  <p class="title-s">My roles</p>
-                  <span>Teacher</span><span class="pull-right">90%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <span>Motivator</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Creator</span> <span class="pull-right">80%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>Dad</span> <span class="pull-right">90%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="about-me pt-4 pt-md-0">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      About me
-                    </h5>
-                  </div>
-                  <p class="lead">
-                    I am a people-person and spent several years looking for my dream job, but eight years ago I was
-                    inspired to get into teaching, and I love it! There is nothing greater than helping others exploring
-                    the vast world of knowledge and I feel I`m part of the future.
-                  </p>
-                  <p class="lead">
-                    When I am not working, I usually spent my time with my lovely wife and our four year old daughter
-                    Ava, which is an amazing kid and I love her with my whole essence. I love cooking and spending some
-                    time relaxing with a book or a great movie.
-                  </p>
-                  <p class="lead">
-                    I love meeting new people and I feel the need to help and be useful for the others. So feel free to
-                    say hello!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ About Me End /-->
-  <!--/ Experience Start  /-->
-  <section>
-    <div class="title-box text-center">
-      <h3 id="experience" class="title-a">
-        EXPERIENCE
-      </h3>
-      <p class="subtitle-a">
-        Teaching with a passion.
-      </p>
-    </div>
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4 col-lg-4">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-ios-people"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">12500</p>
-                <span class="counter-text">STUDENTS</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-lg-4">
-            <div class="counter-box">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-android-microphone"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">250</p>
-                <span class="counter-text">LIVE LESSONS</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-lg-4">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">10</p>
-                <span class="counter-text">YEARS OF EXPERIENCE</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Experience End /-->
+    </section>
+  </main>
 
-  <!--/ Section Things I do Start /-->
-  <section class="about-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 id="things-i-do" class="title-a">
-              Professional Experience
-            </h3>
-            <p class="subtitle-a">
-              Companies and Positions
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <img src="img/softuni-logo.svg" class=" img-fluid rounded b-shadow-a" alt=""></span>
-            </div>
-            <div class="service-content">
-              <h1 class="s-title text-center">SoftUni</h1>
-              <h2 class="s-description text-center">Educational Director</h2>
-              <p class="s-description text-center">
-                2018 - 2021
-              </p>
-              <p class="s-description text-center">
-                The first educational initiative I`ve helped develop and scale up.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <img src="img/logo-arcacademy.png" class="img-fluid rounded b-shadow-a" alt=""></i>
-            </div>
-            <div class="service-content">
-              <h1 class="s-title text-center">ARC Academy</h1>
-              <h2 class="s-description text-center">Educational Director</h2>
-              <p class="s-description text-center">
-                2021 - 2022
-              </p>
-              <p class="s-description text-center">
-                Educational center with focus on Game Development.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <img src="img/teachme-logo.svg" class="img-fluid rounded b-shadow-a" alt=""></i>
-              </div>
-            <div class="service-content">
-              <h1 class="s-title text-center">TeachMe</h1>
-              <h2 class="s-description text-center">CEO</h2>
-              <p class="s-description text-center">
-                2020 - present
-              </p>
-              <p class="s-description text-center">
-                One great project, that drives my passion for education.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Section Services End /-->
+  <footer class="footer">
+    <p class="mono">© 2026 Alen Paunov — <span data-i18n="footer.note">designed &amp; built with curiosity</span></p>
+    <a class="footer__legacy mono magnetic" href="before-ai/" data-i18n="footer.beforeAi">my website before AI ↗</a>
+  </footer>
 
-  <!--/ Section Things I do Start /-->
-  <section class="about-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 id="things-i-do" class="title-a">
-              Things I do
-            </h3>
-            <p class="subtitle-a">
-              Get the most of your time!
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-university"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Teaching</h2>
-              <p class="s-description text-center">
-                Having someone understand a concept means more than understanding it yourself.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-monitor"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Product Development</h2>
-              <p class="s-description text-center">
-                Improving and getting a product successful is amazing experience.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Development</h2>
-              <p class="s-description text-center">
-                I love to get my hands dirty in some projects using React and JavaScript.
-              </p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-paintbrush"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Design</h2>
-              <p class="s-description text-center">
-                More of an artist than a designer, but still the colors are important.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-ios-lightbulb-outline"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Problem Solving</h2>
-              <p class="s-description text-center">
-                The most incredible feeling is to encounter a problem that makes you struggle for finding the solution.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-happy-outline"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Having Fun</h2>
-              <p class="s-description text-center">
-                No matter what you do, have fun while doing it!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Section Things I Do End /-->
-
-
-  <!-- // TODO ADD PROJECTS LATER
-    <section class="portfolio-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 id="work" class="title-a">
-              Projects
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Nov. 2020</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"></h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"></h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"></h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"></h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"></h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-
-  <!--/ Section Quotes /-->
-  <div class="quotes paralax-mf bg-image" style="background-image: url(img/classroom.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="quote-mf" class="owl-carousel owl-theme">
-            <div class="quote-box">
-              <div class="author-quote">
-                <span class="author">Malcolm X</span>
-              </div>
-              <div class="content-quote">
-                <p class="description lead">
-                  Education is our passport to the future, for tomorrow belongs to the people who prepare for it today.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="quote-box">
-              <div class="author-quote">
-                <span class="author">Robert Frost</span>
-              </div>
-              <div class="content-quote">
-                <p class="description lead">
-                  I am not a teacher, but an awakener.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="quote-box">
-              <div class="author-quote">
-                <span class="author">Joseph Joubert</span>
-              </div>
-              <div class="content-quote">
-                <p class="description lead">
-                  To teach is to learn twice over.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="quote-box">
-              <div class="author-quote">
-                <span class="author">Bill Gates</span>
-              </div>
-              <div class="content-quote">
-                <p class="description lead">
-                  Technology is just a tool. In terms of getting the kids to work together and motivating them, the
-                  teacher is the most important.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="quote-box">
-              <div class="author-quote">
-                <span class="author">Elon Musk</span>
-              </div>
-              <div class="content-quote">
-                <p class="description lead">
-                  I think we have a duty to maintain the light of consciousness to make sure it continues into the
-                  future.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--/ Section Blog Star /-->
-  <section class="blog-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 id="blog" class="title-a">
-              Articles
-            </h3>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank" href="https://bnr.bg/hristobotev/post/101410930"><img
-                  src="https://static.bnr.bg/gallery/cr/medium/239941cab3329ee0c3ae5c85991f71ad.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Interview</h6>
-                </div>
-              </div>
-              <h3 class="card-title">
-                <a target="_blank" href="https://bnr.bg/hristobotev/post/101410930">Teachers are the guiding light of every nation</a>
-              </h3>
-              <p class="card-description">
-                “Teachers are definitely eager to learn the good practices in digital education... ”
-              </p>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank" href="https://www.24chasa.bg/mnenia/article/9614096"><img
-                  src="https://cache2.24chasa.bg/Images/Cache/656/Image_9616656_126_0.jpg" alt=""
-                  class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Event</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a target="_blank"
-                  href="https://www.24chasa.bg/mnenia/article/9614096">Trend Europe</a></h3>
-              <p class="card-description">
-                How education happens in a pandemic - discussion of "24 часа"
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank"
-                href="https://mmtvmusic.com/mm-player/most-viewed/shows/razgovori-za-bydeshteto-s-alen-paunov/"><img
-                  src="https://cdnt.onnetwork.tv/poster/4/0/402884_6.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Interview</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a target="_blank"
-                  href="https://mmtvmusic.com/mm-player/most-viewed/shows/razgovori-za-bydeshteto-s-alen-paunov/">
-                  Future Talks with Ivaylo Simeonov </a></h3>
-              <p class="card-description">
-                There was a clash of views, shared valuable experiences and a lot of good emotion.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank" href="https://www.168chasa.bg/article/8355133"><img
-                  src="https://cache2.24chasa.bg/Images/Cache/146/Image_8355146_305_0.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Article</h6>
-                </div>
-              </div>
-              <h3 class="card-title">
-                <a target="_blank" href="https://www.168chasa.bg/article/8355133">The most important thing for becoming
-                  “programmer”</a>
-              </h3>
-              <p class="card-description">
-                “In fact, the transition from any other profession is relatively the same, we are all starting to learn
-                a new skill.”
-              </p>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank" href="https://www.tvevropa.com/2019/12/koi-sa-populyarnite-softuerni-tehnologii/"><img
-                  src="https://www.tvevropa.com/wp-content/uploads/2019/12/bd1-3-620x353.jpg" alt=""
-                  class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Interview</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a target="_blank"
-                  href="https://www.tvevropa.com/2019/12/koi-sa-populyarnite-softuerni-tehnologii/">Which are the
-                  popular software technologies?</a></h3>
-              <p class="card-description">
-                The latest in the world of software engineering. Interview with Dimitar Vuchev - TV Europe.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a target="_blank"
-                href="https://www.investor.bg/imenata-na-biznesa/263/a/softuernoto-injenerstvo-e-syzdateliat-na-bydeshteto-na-choveshkata-civilizaciia-312117/"><img
-                  src="https://www.investor.bg/media/files/resized/article/640x360/876/4d900ee431966d2bec1492b9c10db876-0000312117-article3.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Article</h6>
-                </div>
-              </div>
-              <h3 class="card-title"><a target="_blank"
-                  href="https://www.investor.bg/imenata-na-biznesa/263/a/softuernoto-injenerstvo-e-syzdateliat-na-bydeshteto-na-choveshkata-civilizaciia-312117/">
-                  Software engineering - creator of the future </a></h3>
-              <p class="card-description">
-                Software engineering as an opportunity for development and the steps to take to reach the top.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--/ Section Blog End /-->
-
-  <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/layout.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="contact-mf">
-            <div class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="title-box text-center">
-                    <h3 id="contact" class="title-a">
-                      Contact Me
-                    </h3>
-                    <p class="subtitle-a">
-                      Feel free to say hello!
-                    </p>
-                    <div class="more-info">
-                      <!-- <p class="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                        expedita aperiam aliquid at.
-                        Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                        mollitia inventore?
-                      </p> -->
-                      <div class="line-mf"></div>
-                      <div class="socials">
-                        <ul>
-                          <li><a target="_blank" href="https://www.facebook.com/alen.v.paunov/"><span
-                                class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                          <li>
-                            <a target="_blank" href="https://www.instagram.com/alenpaun/">
-                              <span class="ico-circle">
-                                <i class="ion-social-instagram"></i>
-                              </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/alen-paunov/">
-                              <span class="ico-circle">
-                                <i class="ion-social-linkedin"></i>
-                              </span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <ul class="list-ico">
-                        <li><span class="ion-ios-location"></span> Sofia, Bulgaria</li>
-                        <li><span class="ion-ios-telephone"></span> +359 877 985 474</li>
-                        <li><span class="ion-email"></span> alen.paunov@gmail.com</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>AlenPaunov</strong>. All Rights Reserved</p>
-              <div class="credits">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </section>
-  <!--/ Section Contact-footer End /-->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
-
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/counterup/jquery.waypoints.min.js"></script>
-  <script src="lib/counterup/jquery.counterup.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <script src="lib/typed/typed.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
-
+  <script type="module" src="js/scene.js"></script>
 </body>
-
 </html>
