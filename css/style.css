@@ -623,15 +623,18 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--
 .js .hero__scroll,
 .js .hero__cta .btn,
 .js .nav { opacity: 0; }
-.js .hero__title-line { overflow: hidden; }
-.js .hero__title-word { transform: translateY(110%); }
-/* if GSAP is unavailable, reveal the hero immediately */
+/* if GSAP is unavailable, reveal these immediately */
 .no-gsap .hero__kicker,
 .no-gsap .hero__sub,
 .no-gsap .hero__scroll,
 .no-gsap .hero__cta .btn,
 .no-gsap .nav { opacity: 1; }
-.no-gsap .hero__title-word { transform: none; }
+
+/* hero title — pure CSS reveal, independent of JS so it can never get stuck hidden */
+.hero__title-line { overflow: hidden; }
+.hero__title-word { animation: heroWordUp 1.05s cubic-bezier(.16, .84, .3, 1) both; }
+.hero__title-line:nth-of-type(2) .hero__title-word { animation-delay: 0.12s; }
+@keyframes heroWordUp { from { transform: translateY(110%); } to { transform: translateY(0); } }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
@@ -661,6 +664,6 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--
   *, *::before, *::after { transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
   .js .hero__kicker, .js .hero__sub, .js .hero__scroll, .js .hero__cta .btn, .js .nav { opacity: 1; }
-  .js .hero__title-word { transform: none; }
+  .hero__title-word { animation: none; }
   .hero__canvas { display: none; }
 }
