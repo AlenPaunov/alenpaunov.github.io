@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCursor();
   initCardGlow();
 
-  if (prefersReducedMotion || typeof gsap === "undefined") {
-    // No animations: make everything visible and set final counter values.
+  const revealAll = () => {
     document.documentElement.classList.add("no-gsap");
     document.querySelectorAll(".reveal").forEach((el) => {
       el.style.opacity = "1";
@@ -23,18 +22,29 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".stat__num").forEach((el) => {
       el.textContent = formatCount(+el.dataset.count) + (el.dataset.suffix || "");
     });
+  };
+
+  // If animation libs aren't ready (or motion is reduced), show everything immediately.
+  const gsapReady = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
+  if (prefersReducedMotion || !gsapReady) {
+    revealAll();
     return;
   }
 
-  gsap.registerPlugin(ScrollTrigger);
-  initHeroIntro();
-  initReveals();
-  initCounters();
-  initRotator();
-  initMagnetic();
-  initMarquee();
-  initTilt();
-  initAppearPreview();
+  try {
+    gsap.registerPlugin(ScrollTrigger);
+    initHeroIntro();
+    initReveals();
+    initCounters();
+    initRotator();
+    initMagnetic();
+    initMarquee();
+    initTilt();
+    initAppearPreview();
+  } catch (err) {
+    // Something failed mid-setup — never leave the hero/content hidden.
+    revealAll();
+  }
 });
 
 /* ---------- nav scrolled state ---------- */
