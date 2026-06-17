@@ -617,6 +617,22 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--
 .reveal { opacity: 1; }
 .js .reveal { opacity: 0; transform: translateY(36px); }
 
+/* ---------- hero intro initial states (hidden from first paint => no flash) ---------- */
+.js .hero__kicker,
+.js .hero__sub,
+.js .hero__scroll,
+.js .hero__cta .btn,
+.js .nav { opacity: 0; }
+.js .hero__title-line { overflow: hidden; }
+.js .hero__title-word { transform: translateY(110%); }
+/* if GSAP is unavailable, reveal the hero immediately */
+.no-gsap .hero__kicker,
+.no-gsap .hero__sub,
+.no-gsap .hero__scroll,
+.no-gsap .hero__cta .btn,
+.no-gsap .nav { opacity: 1; }
+.no-gsap .hero__title-word { transform: none; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .nav__links { display: none; }
@@ -644,5 +660,7 @@ body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--
   .nav__logo-cursor { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .hero__kicker, .js .hero__sub, .js .hero__scroll, .js .hero__cta .btn, .js .nav { opacity: 1; }
+  .js .hero__title-word { transform: none; }
   .hero__canvas { display: none; }
 }

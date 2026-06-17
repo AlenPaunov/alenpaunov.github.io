@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — page not found · Alen Paunov</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307070b'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#07070b; --text:#eceaf4; --muted:#8d8a9e;
+    --violet:#8b5cf6; --cyan:#22d3ee;
+    --grad:linear-gradient(100deg,var(--violet) 0%,var(--cyan) 100%);
+    --font-display:"Clash Display",sans-serif; --font-body:"Satoshi",sans-serif; --font-mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;position:relative}
+  ::selection{background:var(--violet);color:#fff}
+  a{color:inherit;text-decoration:none}
+  /* floating gradient orbs */
+  .orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.5;z-index:0;pointer-events:none}
+  .orb.v{width:46vw;height:46vw;background:var(--violet);top:-14vw;left:-10vw;animation:float1 16s ease-in-out infinite}
+  .orb.c{width:40vw;height:40vw;background:var(--cyan);bottom:-14vw;right:-8vw;animation:float2 19s ease-in-out infinite}
+  @keyframes float1{50%{transform:translate(6vw,5vw) scale(1.1)}}
+  @keyframes float2{50%{transform:translate(-5vw,-4vw) scale(1.08)}}
+  /* grain */
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{position:relative;z-index:2;max-width:640px}
+  .kicker{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  .code{font-family:var(--font-display);font-weight:700;font-size:clamp(7rem,26vw,16rem);line-height:.9;letter-spacing:-.02em;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+  .code::before,.code::after{content:"404";position:absolute;inset:0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0}
+  .code::before{animation:glitch 3.6s infinite}
+  .code::after{animation:glitch2 3.6s infinite}
+  @keyframes glitch{0%,92%,100%{opacity:0;transform:none}93%{opacity:.7;transform:translate(-3px,2px)}96%{opacity:.7;transform:translate(3px,-2px)}}
+  @keyframes glitch2{0%,90%,100%{opacity:0;transform:none}94%{opacity:.6;transform:translate(4px,1px)}97%{opacity:.6;transform:translate(-4px,-1px)}}
+  h1{font-family:var(--font-display);font-weight:600;font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.1;margin:.2em 0 .4em}
+  p{color:var(--muted);font-size:1.06rem;line-height:1.6;margin:0 auto 2rem;max-width:440px}
+  p .bg{display:block;font-size:.96rem;opacity:.75;margin-top:.5rem}
+  .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{font-family:var(--font-body);font-weight:500;font-size:1rem;padding:14px 26px;border-radius:40px;
+    transition:transform .25s,box-shadow .25s,border-color .25s;display:inline-flex;align-items:center;gap:8px}
+  .btn--primary{background:var(--grad);color:#07070b;font-weight:700}
+  .btn--primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--violet)}
+  .btn--ghost{border:1px solid rgba(255,255,255,.18);color:var(--text)}
+  .btn--ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+  @media (prefers-reduced-motion:reduce){.orb,.code::before,.code::after{animation:none}}
+</style>
+</head>
+<body>
+  <div class="orb v" aria-hidden="true"></div>
+  <div class="orb c" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <p class="kicker">Error 404 — lost in the system</p>
+    <div class="code" data-text="404" aria-hidden="true">404</div>
+    <h1>This page wandered off.</h1>
+    <p>
+      The link is broken or the page never existed. Let's get you back on track.
+      <span class="bg">Страницата я няма — да се върнем в началото.</span>
+    </p>
+    <div class="actions">
+      <a class="btn btn--primary" href="/">← Back home</a>
+      <a class="btn btn--ghost" href="/#contact">Get in touch</a>
+    </div>
+  </main>
+</body>
+</html>

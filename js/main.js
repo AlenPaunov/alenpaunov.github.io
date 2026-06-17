@@ -113,13 +113,14 @@ function initCardGlow() {
 
 /* ---------- hero intro timeline ---------- */
 function initHeroIntro() {
+  // fromTo with explicit end states so the CSS-hidden initial states animate in cleanly
   const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-  tl.from(".hero__kicker", { y: 24, opacity: 0, duration: 0.8 }, 0.15)
-    .from(".hero__title-word", { yPercent: 110, duration: 1.1, stagger: 0.12 }, 0.25)
-    .from(".hero__sub", { y: 28, opacity: 0, duration: 0.9 }, 0.75)
-    .from(".hero__cta .btn", { y: 24, opacity: 0, duration: 0.7, stagger: 0.1 }, 0.95)
-    .from(".hero__scroll", { opacity: 0, duration: 0.8 }, 1.2)
-    .from(".nav", { y: -20, opacity: 0, duration: 0.7 }, 0.4);
+  tl.fromTo(".hero__kicker", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.15)
+    .fromTo(".hero__title-word", { yPercent: 110 }, { yPercent: 0, duration: 1.1, stagger: 0.12 }, 0.25)
+    .fromTo(".hero__sub", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.75)
+    .fromTo(".hero__cta .btn", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 }, 0.95)
+    .fromTo(".hero__scroll", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.2)
+    .fromTo(".nav", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.4);
 }
 
 /* ---------- scroll reveals ---------- */
