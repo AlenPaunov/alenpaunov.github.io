@@ -44,9 +44,13 @@
     var W = 0, H = 0, S = 1, GW = 0, GH = 0;
     var ready = false, running = false, lastInk = 0;
     var buf = [], radius = 0, autoRAF = null, autoOn = false;
+    var fadeK = 0;  // 1 while the liquid is held, eased to 0 on the way out
+    // how long the liquid stays up after your last stroke, and how long it takes to go.
+    // these two are the dials for the whole feel of the exit.
+    var HOLD = 2000, EXIT = 2600;
 
     // alignment, adjustable at runtime with ?tune
-    var T = { s: 1, x: 0, y: 0 };
+    var T = { s: 1, x: -4, y: 0 };   // Alen's tuned alignment; ?tune can override it
     try {
       var saved = JSON.parse(localStorage.getItem("apTermAlign") || "null");
       if (saved && typeof saved.s === "number") T = saved;
@@ -145,15 +149,16 @@
     var tSec = 0;
     function flow(dt) {
       // the puddle creeps: blurred, nudged downhill, slightly spread
-      var drift = 0.55 * S, spread = 1.004;
+      var drift = 0.45 * S, spread = 1.002;
       fk.setTransform(1, 0, 0, 1, 0, 0);
       fk.clearRect(0, 0, W, H);
-      fk.filter = "blur(" + (1.15 * S).toFixed(2) + "px)";
+      fk.filter = "blur(" + (0.7 * S).toFixed(2) + "px)";
       fk.drawImage(inkC, -(spread - 1) * W / 2, drift - (spread - 1) * H / 2, W * spread, H * spread);
       fk.filter = "none";
 
       var age = nowMs() - lastInk;
-      var fade = age < 1100 ? 0.004 : (age < 2600 ? 0.012 : 0.024);
+      // barely decay while it is being held, so there is time to look at what is underneath
+      var fade = age < HOLD ? 0.0018 : 0.009;
       fk.globalCompositeOperation = "destination-out";
       fk.fillStyle = "rgba(0,0,0," + fade + ")";
       fk.fillRect(0, 0, W, H);
@@ -167,19 +172,36 @@
     /* ---------- compose ---------- */
     function render() {
       // metaball: blur the ink, then stack it so the falloff turns into a crisp skin
+      if (stackC.width !== GW || stackC.height !== GH) {
+        stackC.width = GW; stackC.height = GH;
+        blurC.width = GW; blurC.height = GH;
+      }
+
+      // blurC = blur(ink)
+      bk.setTransform(1, 0, 0, 1, 0, 0);
+      bk.clearRect(0, 0, GW, GH);
+      bk.filter = "blur(" + (4.2 * S).toFixed(2) + "px)";
+      bk.drawImage(inkC, 0, 0, GW, GH);
+      bk.filter = "none";
+
+      // gooC = 6 * blur^3.
+      // Cubing first is what kills the haze: paint diffuses a little every frame,
+      // and a straight multiply would amplify that residue into a grey film over
+      // the whole portrait. a^3 pushes anything faint to nothing and leaves the
+      // body of the puddle intact; the x6 then restores a crisp liquid edge.
       gk.setTransform(1, 0, 0, 1, 0, 0);
       gk.clearRect(0, 0, GW, GH);
-      gk.filter = "blur(" + (4.6 * S).toFixed(2) + "px)";
-      gk.drawImage(inkC, 0, 0, GW, GH);
-      gk.filter = "none";
-      if (stackC.width !== GW || stackC.height !== GH) { stackC.width = GW; stackC.height = GH; }
+      gk.drawImage(blurC, 0, 0);
+      gk.globalCompositeOperation = "destination-in";
+      gk.drawImage(blurC, 0, 0);
+      gk.drawImage(blurC, 0, 0);
+      gk.globalCompositeOperation = "source-over";
+
       sk.setTransform(1, 0, 0, 1, 0, 0);
       sk.clearRect(0, 0, GW, GH);
       sk.drawImage(gooC, 0, 0);
       gk.globalCompositeOperation = "lighter";
-      gk.drawImage(stackC, 0, 0);
-      gk.drawImage(stackC, 0, 0);
-      gk.drawImage(stackC, 0, 0);
+      for (var q = 0; q < 3; q++) gk.drawImage(stackC, 0, 0);
       gk.globalCompositeOperation = "source-over";
 
       // the liquid edge: a - a*a peaks exactly on the meniscus
@@ -208,28 +230,43 @@
       vx.clearRect(0, 0, W, H);
       vx.drawImage(machC, wob - W * 0.006, wob2 - H * 0.006, W * 1.012, H * 1.012);
       vx.globalCompositeOperation = "destination-in";
+      vx.globalAlpha = fadeK;
       vx.drawImage(gooC, 0, 0, W, H);
+      vx.globalAlpha = 1;
       vx.globalCompositeOperation = "source-over";
 
       // meniscus: a hot rim plus a chrome highlight offset upward
       vx.globalCompositeOperation = "lighter";
-      vx.globalAlpha = 0.85;
+      vx.globalAlpha = 0.85 * fadeK;
       vx.drawImage(rimC, 0, 0, W, H);
-      vx.globalAlpha = 0.35;
+      vx.globalAlpha = 0.35 * fadeK;
       vx.drawImage(rimC, 0, -2.4 * S, W, H);
       vx.globalAlpha = 1;
       vx.globalCompositeOperation = "source-over";
     }
 
     var stackC = document.createElement("canvas"), sk = stackC.getContext("2d");
+    var blurC = document.createElement("canvas"), bk = blurC.getContext("2d");
 
     /* ---------- loop ---------- */
     function start() { if (!running) { running = true; requestAnimationFrame(tick); } }
     function tick() {
       tSec += 0.016;
+
+      // hold, then ease out — this is what makes the liquid leave smoothly
+      // instead of the picture snapping back once the ink happens to run out
+      var out = nowMs() - lastInk - HOLD;
+      if (autoOn || out <= 0) {
+        fadeK = 1;
+      } else {
+        var k = out / EXIT;
+        fadeK = k >= 1 ? 0 : 0.5 + 0.5 * Math.cos(Math.PI * k);
+      }
+
       flow();
       render();
-      if (nowMs() - lastInk > 5600 && !autoOn) {
+
+      if (fadeK === 0) {
         ik.clearRect(0, 0, W, H);
         render();
         running = false;
