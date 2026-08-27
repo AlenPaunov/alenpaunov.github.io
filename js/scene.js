@@ -19,6 +19,7 @@ if (canvas && !reduced) {
 }
 
 function init() {
+  canvas.dataset.taken = "1";   // lets a fallback know the real scene is running
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   const COUNT = isMobile ? 110 : 240;
   const SPARK_COUNT = isMobile ? 24 : 60;

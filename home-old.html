@@ -16,8 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/hero-machine.css" />
 
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
@@ -35,130 +33,70 @@
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- ===== NAV (android) ===== -->
-  <header class="nav dnav" id="nav">
-
-    <a class="dnav__word magnetic" href="#top" aria-label="Alen Paunov — home">
-      <span class="dnav__word-a">ALEN</span>
-      <span class="dnav__word-b">PAUNOV</span>
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a class="nav__logo magnetic" href="#top" aria-label="Alen Paunov — home">
+      <span class="nav__logo-mark">AP</span><span class="nav__logo-cursor">_</span>
     </a>
 
-    <button class="dmark" id="droidTrigger" aria-pressed="false"
-            aria-label="Toggle android mode">
-      <span class="dmark__stack">
-        <svg class="dmark__ring" viewBox="0 0 56 56" aria-hidden="true">
-          <circle class="dmark__ring-bg" cx="28" cy="28" r="25.5" />
-          <circle class="dmark__ring-fg" cx="28" cy="28" r="25.5" pathLength="1" />
-        </svg>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="magnetic" href="#about" data-i18n="nav.about">About</a>
+      <a class="magnetic" href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a class="magnetic" href="#journey" data-i18n="nav.journey">Journey</a>
+      <a class="magnetic" href="#contact" data-i18n="nav.contact">Contact</a>
+      <a class="magnetic nav__gallery" href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
+    </nav>
 
-        <svg class="dmark__glyph" viewBox="0 0 56 56" aria-hidden="true">
-          <!-- face plate -->
-          <path class="dmark__plate" d="M17 19 L28 13 L39 19 L39 34 L28 42 L17 34 Z" />
-          <!-- human state: AP monogram -->
-          <text class="dmark__ap" x="28" y="32" text-anchor="middle">AP</text>
-          <!-- android state: optics + antenna -->
-          <g class="dmark__face">
-            <rect class="dmark__eye" x="21.5" y="24" width="5.5" height="3.4" rx="1.7" />
-            <rect class="dmark__eye" x="29" y="24" width="5.5" height="3.4" rx="1.7" />
-            <path class="dmark__mouth" d="M24 32.5 H32" />
-            <path class="dmark__ant" d="M28 13 V7" />
-            <circle class="dmark__antdot" cx="28" cy="6" r="1.8" />
-          </g>
-        </svg>
-      </span>
-
-      <span class="dmark__read mono" aria-hidden="true">
-        <span class="dmark__read-h">system: human</span>
-        <span class="dmark__read-d">system: machine</span>
-      </span>
-    </button>
-
-    <div class="dnav__right">
-      <nav class="dnav__links" aria-label="Primary">
-        <a class="magnetic" href="#about" data-i18n="nav.about">About</a>
-        <a class="magnetic" href="#expertise" data-i18n="nav.expertise">Expertise</a>
-        <a class="magnetic" href="#journey" data-i18n="nav.journey">Journey</a>
-        <a class="magnetic" href="#contact" data-i18n="nav.contact">Contact</a>
-        <a class="magnetic dnav__gallery" href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
-      </nav>
-
+    <div class="nav__right">
       <button class="lang-toggle magnetic" id="langToggle" aria-label="Switch language">
         <span class="lang-toggle__opt is-active" data-lang="en">EN</span>
         <span class="lang-toggle__sep">/</span>
         <span class="lang-toggle__opt" data-lang="bg">BG</span>
       </button>
-
-      <a class="dnav__cta magnetic" href="#contact" data-i18n="hero.cta1">Let's talk</a>
-
-      <button class="burger dnav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- fullscreen overlay menu -->
-  <div class="menu-overlay dmenu" id="menuOverlay" aria-hidden="true">
-    <nav class="menu-overlay__links dmenu__links" aria-label="Primary">
-      <a href="#about"><i class="mono">01</i><span data-i18n="nav.about">About</span></a>
-      <a href="#expertise"><i class="mono">02</i><span data-i18n="nav.expertise">Expertise</span></a>
-      <a href="#journey"><i class="mono">03</i><span data-i18n="nav.journey">Journey</span></a>
-      <a href="#contact"><i class="mono">04</i><span data-i18n="nav.contact">Contact</span></a>
-      <a href="index-gallery.html"><i class="mono">05</i><span data-i18n="nav.gallery">Gallery ✦</span></a>
+  <!-- mobile overlay menu -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Mobile">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
     </nav>
     <p class="menu-overlay__meta mono">Sofia, Bulgaria — <span data-i18n="hero.worldwide">working worldwide</span></p>
   </div>
 
   <main id="top">
 
-    <!-- ===== HERO (android) ===== -->
-    <section class="hero dhero" id="hero">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
       <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--magenta" aria-hidden="true"></div>
-      <div class="dhero__mesh" aria-hidden="true"></div>
 
-      <p class="hero__kicker dhero__kicker mono" data-i18n="hero.kicker">// AI Integration Strategist &amp; Educational Expert</p>
+      <div class="hero__content">
+        <p class="hero__kicker mono" data-i18n="hero.kicker">// AI Integration Strategist &amp; Educational Expert</p>
 
-      <div class="dhero__stage">
-        <h1 class="dhero__name" aria-label="Alen Paunov">
-          <span class="dhero__name-a">ALEN</span>
-          <span class="dhero__name-b">PAUNOV</span>
+        <h1 class="hero__title" aria-label="Alen Paunov">
+          <span class="hero__title-line"><span class="hero__title-word">ALEN</span></span>
+          <span class="hero__title-line hero__title-line--outline"><span class="hero__title-word">PAUNOV</span></span>
         </h1>
 
-        <figure class="term" id="term" tabindex="0"
-                aria-label="Portrait of Alen Paunov — paint over it to reveal the machine">
-          <div class="term__wrap" id="termWrap">
-            <img class="term__photo" id="termPhoto" src="img/portrait-hero.png"
-                 alt="Alen Paunov" fetchpriority="high" />
-            <canvas class="term__canvas" id="termCanvas" aria-hidden="true"></canvas>
-          </div>
-
-          <figcaption class="term__hint mono" data-i18n="term.hint">paint over me ✦</figcaption>
-        </figure>
-      </div>
-
-      <div class="dhero__foot">
-        <p class="hero__sub dhero__sub">
+        <p class="hero__sub">
           <span data-i18n="hero.sub">I help companies and educators turn AI from hype into</span>
           <span class="hero__rotator"><span class="hero__rotator-word" id="rotatorWord">real strategy</span></span>
         </p>
 
-        <div class="hero__cta dhero__cta">
+        <div class="hero__cta">
           <a class="btn btn--primary magnetic" href="#contact" data-i18n="hero.cta1">Let's talk</a>
           <a class="btn btn--ghost magnetic" href="#expertise" data-i18n="hero.cta2">Explore my work</a>
         </div>
       </div>
-
-      <aside class="dpanel mono" aria-hidden="true">
-        <span class="dpanel__label">status</span>
-        <span class="dpanel__value" data-h="human · sofia, bg" data-d="machine · online"></span>
-        <div class="dpanel__bar"><i></i></div>
-        <ul class="dpanel__rows">
-          <li><b>unit</b><span data-h="curiosity" data-d="ap-800"></span></li>
-          <li><b>mission</b><span data-h="strategy · edu" data-d="teach ai"></span></li>
-          <li><b>uptime</b><span data-h="10+ yrs" data-d="10+ yrs"></span></li>
-        </ul>
-      </aside>
 
       <div class="hero__scroll mono" aria-hidden="true">
         <span data-i18n="hero.scroll">scroll</span>
@@ -189,98 +127,11 @@
               <p data-i18n="about.p3">Outside of work I'm a father, a passionate cook and a relentless reader. The best systems I know — classrooms, companies, families — all run on the same thing: trust.</p>
             </div>
           </div>
-          <figure class="about__portrait reveal ag-fig" id="aboutPortrait" tabindex="0">
+          <figure class="about__portrait reveal">
             <div class="about__portrait-frame">
               <img src="img/portrait-about.png" alt="Portrait of Alen Paunov" loading="lazy" />
-
-              <svg class="ag-svg" viewBox="0 0 733 1100" fill="none" aria-hidden="true"
-                   preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="agGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#a78bfa" />
-                    <stop offset="1" stop-color="#67e8f9" />
-                  </linearGradient>
-                  <filter id="agGlow" x="-40%" y="-40%" width="180%" height="180%">
-                    <feGaussianBlur stdDeviation="5" result="b" />
-                    <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-                  </filter>
-                </defs>
-                <g transform="matrix(0.62043 0.04376 -0.04376 0.62043 109.1123 42.65)">
-      <!-- G0 sketch of the face -->
-      <g class="ag ag--0">
-        <path pathLength="1" d="M262 528 C300 500 336 498 358 512" />
-        <path pathLength="1" d="M420 502 C462 486 512 492 540 512" />
-        <path pathLength="1" d="M372 546 C368 594 358 632 346 652 C356 664 380 668 396 662" />
-        <path pathLength="1" d="M330 700 C368 688 434 686 464 700 C436 726 366 728 330 700" />
-        <path pathLength="1" d="M258 640 C300 664 330 676 356 680" />
-        <path pathLength="1" d="M516 636 C494 668 466 690 436 702" />
-      </g>
-
-      <!-- G1 cranial shell -->
-      <g class="ag ag--1">
-        <path pathLength="1" d="M232 646 C224 452 302 322 404 320 C516 318 596 448 610 604" />
-        <path pathLength="1" d="M240 520 C316 474 456 462 558 498" />
-        <path pathLength="1" d="M320 342 C320 400 316 452 312 500" />
-        <path pathLength="1" d="M486 338 C490 400 500 450 512 496" />
-        <path pathLength="1" d="M404 320 C400 370 398 410 398 446" />
-      </g>
-
-      <!-- G2 visor -->
-      <g class="ag ag--2">
-        <path pathLength="1" d="M222 570 L256 528 L552 518 L600 556 L590 612 L548 650 L268 658 L226 622 Z" />
-        <path pathLength="1" d="M244 596 L584 588" />
-        <path pathLength="1" d="M350 524 L352 560" />
-      </g>
-
-      <!-- optics -->
-      <g class="ag__eyes">
-        <rect x="252" y="560" width="78" height="22" rx="11" />
-        <rect x="418" y="552" width="84" height="22" rx="11" />
-      </g>
-
-      <!-- G3 jaw -->
-      <g class="ag ag--3">
-        <path pathLength="1" d="M250 664 L268 726 L330 776 L402 796 L470 768 L522 700 L540 652" />
-        <path pathLength="1" d="M320 690 L326 766" />
-        <path pathLength="1" d="M466 686 L456 762" />
-        <path pathLength="1" d="M328 692 H466" />
-        <path pathLength="1" d="M332 706 H462" />
-        <path pathLength="1" d="M338 720 H456" />
-      </g>
-
-      <!-- G4 plates + ports -->
-      <g class="ag ag--4">
-        <path pathLength="1" d="M542 542 L596 538 L616 590 L600 650 L552 656" />
-        <circle pathLength="1" cx="566" cy="494" r="14" />
-        <circle pathLength="1" cx="566" cy="494" r="5" />
-        <path pathLength="1" d="M580 494 H646 L662 478" />
-        <rect pathLength="1" x="656" y="464" width="14" height="14" />
-      </g>
-
-      <!-- G5 neck -->
-      <g class="ag ag--5">
-        <path pathLength="1" d="M348 838 C402 862 470 856 506 826" />
-        <path pathLength="1" d="M344 884 C404 914 480 906 520 868" />
-        <path pathLength="1" d="M506 826 L556 812 L556 748" />
-        <circle pathLength="1" cx="556" cy="740" r="7" />
-        <path pathLength="1" d="M348 838 L300 824 L300 762" />
-      </g>
-
-      <!-- G6 HUD -->
-      <g class="ag ag--hud">
-        <path pathLength="1" d="M170 372 L170 272 L270 272" />
-        <path pathLength="1" d="M576 272 L676 272 L676 372" />
-        <path pathLength="1" d="M170 750 L170 850 L270 850" />
-        <path pathLength="1" d="M676 750 L676 850 L576 850" />
-        <path pathLength="1" d="M124 470 H152 M124 520 H140 M124 570 H152 M124 620 H140 M124 670 H152" />
-        <text class="ag__tag" x="170" y="238">ANDROID MODE</text>
-        <text class="ag__tag ag__tag--sm" x="124" y="906">AP-01</text>
-        <text class="ag__tag ag__tag--sm" x="124" y="942">NEURAL / OK</text>
-      </g>
-                </g>
-              </svg>
             </div>
-            <figcaption class="mono">Alen Paunov — Sofia, BG <span class="ag-hint" data-i18n="ag.hint">— hover me</span></figcaption>
+            <figcaption class="mono">Alen Paunov — Sofia, BG</figcaption>
           </figure>
         </div>
       </div>
@@ -682,7 +533,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/hero-machine.js"></script>
   <script type="module" src="js/scene.js"></script>
 </body>
 </html>

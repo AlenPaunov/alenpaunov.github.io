@@ -5,6 +5,11 @@
 const I18N = {
   en: {
     "nav.about": "About",
+    "droid.hint": "hover to boot ✦",
+    "term.hint": "paint over me ✦",
+    "ag.hint": "— hover me",
+    "term.hintTap": "drag across me ✦",
+    "droid.hintTap": "tap to boot ✦",
     "nav.expertise": "Expertise",
     "nav.journey": "Journey",
     "nav.contact": "Contact",
@@ -71,6 +76,11 @@ const I18N = {
 
   bg: {
     "nav.about": "За мен",
+    "droid.hint": "мини с мишката ✦",
+    "term.hint": "нарисувай ме ✦",
+    "ag.hint": "— мини отгоре",
+    "term.hintTap": "плъзни по мен ✦",
+    "droid.hintTap": "докосни за старт ✦",
     "nav.expertise": "Експертиза",
     "nav.journey": "Път",
     "nav.contact": "Контакт",

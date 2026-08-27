@@ -1,0 +1,192 @@
+/* ============================================================
+   hero-machine.css — liquid terminator reveal + android rig
+   Loads AFTER style.css and hero.css; only the delta.
+   ============================================================ */
+
+/* ---------- nav links back in the header row ---------- */
+.dnav__links { display: flex; align-items: center; gap: 26px; margin-right: 6px; }
+.dnav__links a {
+  position: relative;
+  font-size: .86rem; color: var(--muted);
+  transition: color .25s;
+  white-space: nowrap;
+}
+.dnav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: -6px;
+  width: 100%; height: 1px; background: var(--grad);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .35s cubic-bezier(.65,0,.35,1);
+}
+.dnav__links a:hover { color: var(--text); }
+.dnav__links a:hover::after { transform: scaleX(1); transform-origin: left; }
+.dnav__gallery { color: var(--cyan); }
+
+/* the CTA pill would crowd the links — the menu keeps everything anyway */
+.dnav__cta { display: none; }
+
+/* ---------- the portrait ---------- */
+.dhero__stage { padding-top: var(--nav-h); box-sizing: border-box; }
+
+.term {
+  position: relative; z-index: 3;
+  margin: 0;
+  height: min(88svh, 900px);
+  aspect-ratio: 933 / 1400;
+  outline: none;
+}
+.term__wrap {
+  position: relative; width: 100%; height: 100%;
+  cursor: crosshair;
+  touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, rgba(0,0,0,.55) 82%, transparent 99%);
+  mask-image: linear-gradient(to bottom, #000 58%, rgba(0,0,0,.55) 82%, transparent 99%);
+}
+.term__photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; object-position: center top;
+  user-select: none; -webkit-user-drag: none;
+  filter: saturate(.94) contrast(1.04);
+}
+
+.term__canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.term__hint {
+  position: absolute; left: 50%; bottom: -6px;
+  transform: translateX(-50%);
+  color: var(--muted); white-space: nowrap;
+  transition: opacity .3s;
+  animation: hintPulse 2.6s ease-in-out infinite;
+}
+html.is-boot .term__hint, html.has-booted .term__hint { opacity: 0; animation: none; }
+
+/* ---------- machine mode tints the chrome red instead of cyan ---------- */
+html.is-boot .dmark__ring-fg { stroke: #ff4a18; filter: drop-shadow(0 0 7px rgba(255,74,24,.75)); }
+html.is-boot .dmark__plate { stroke: #ff6a3a; }
+html.is-boot .dmark__eye { fill: #ff4a18; }
+html.is-boot .dmark__mouth, html.is-boot .dmark__ant { stroke: #ff7a4a; }
+html.is-boot .dmark__antdot { fill: #ff4a18; }
+html.is-boot .dmark__read-d { color: #ff6a3a; }
+
+html.is-boot .dpanel {
+  border-color: rgba(255,74,24,.4);
+  box-shadow: 0 0 44px rgba(255,74,24,.14);
+}
+html.is-boot .dpanel__value::before,
+html.is-boot .dpanel__rows span::before { color: #ff6a3a; }
+html.is-boot .dpanel__bar i { background: linear-gradient(90deg, #7c3aed, #ff4a18); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1320px) {
+  .dnav__links { gap: 18px; }
+  .dnav__links a { font-size: .8rem; }
+}
+@media (max-width: 1120px) {
+  .dnav__links { display: none; }
+}
+@media (max-width: 900px) {
+  .term { height: min(64svh, 600px); }
+  .term__hint { bottom: -22px; }
+}
+@media (max-width: 620px) {
+  .dhero__stage { padding-top: calc(var(--nav-h) + 112px); }
+  .term { height: 56svh; }
+  .term__hint { bottom: 2px; font-size: .6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term__hint { animation: none; }
+}
+
+/* ============================================================
+   ANDROID RIG ON THE ABOUT PORTRAIT  (the v1 effect, on hover)
+   ============================================================ */
+.ag-fig { outline: none; }
+.about__portrait-frame { position: relative; }
+.ag-svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  overflow: visible; pointer-events: none;
+}
+.ag path, .ag circle, .ag rect {
+  fill: none;
+  stroke: url(#agGrad);
+  stroke-width: 3;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  opacity: 0;
+  transition: stroke-dashoffset .85s cubic-bezier(.5,0,.2,1), opacity .3s;
+}
+.ag--0 path { stroke-width: 1.9; }
+.ag--hud path { stroke-width: 2.4; }
+
+.ag-fig.is-rig .ag path,
+.ag-fig.is-rig .ag circle,
+.ag-fig.is-rig .ag rect { stroke-dashoffset: 0; opacity: .95; }
+.ag-fig.is-rig .ag--0 path { opacity: .55; }
+.ag-fig.is-rig .ag--hud path { opacity: .55; }
+.ag-fig.is-rig .ag--1 * { transition-delay: .14s; }
+.ag-fig.is-rig .ag--2 * { transition-delay: .28s; }
+.ag-fig.is-rig .ag--3 * { transition-delay: .40s; }
+.ag-fig.is-rig .ag--4 * { transition-delay: .50s; }
+.ag-fig.is-rig .ag--5 * { transition-delay: .58s; }
+.ag-fig.is-rig .ag--hud * { transition-delay: .68s; }
+
+.ag__eyes rect {
+  fill: var(--cyan-bright); stroke: none;
+  opacity: 0; filter: url(#agGlow);
+  transition: opacity .35s;
+}
+.ag-fig.is-rig .ag__eyes rect {
+  opacity: 1; transition-delay: .55s;
+  animation: eyePulse 2.4s ease-in-out .9s infinite;
+}
+.ag__tag {
+  fill: var(--cyan-bright); stroke: none;
+  font-family: var(--font-mono); font-size: 26px; letter-spacing: 3px;
+  opacity: 0; transition: opacity .4s;
+}
+.ag__tag--sm { font-size: 22px; }
+.ag-fig.is-rig .ag__tag { opacity: .85; transition-delay: .8s; }
+
+.ag-fig .about__portrait-frame img { transition: filter .7s, transform .5s; }
+.ag-fig.is-rig .about__portrait-frame img { filter: saturate(.45) contrast(1.08) brightness(.92); }
+.ag-fig.is-rig .about__portrait-frame { border-color: rgba(34,211,238,.45); }
+
+.ag-hint { color: var(--violet-bright); opacity: .7; }
+.ag-fig.is-rig .ag-hint { opacity: 0; }
+
+/* ============================================================
+   ?tune — alignment controls for the machine picture
+   ============================================================ */
+.tuner {
+  position: fixed; left: 18px; bottom: 18px; z-index: 300;
+  width: 230px; padding: 14px 14px 12px;
+  background: rgba(10,10,16,.94);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+  font-size: .66rem; letter-spacing: .06em; color: var(--text);
+  backdrop-filter: blur(8px);
+}
+.tuner b { display: block; margin-bottom: 10px; color: var(--cyan); letter-spacing: .14em; }
+.tuner label { display: block; margin-bottom: 9px; color: var(--muted); }
+.tuner label span { color: var(--text); float: right; }
+.tuner input[type="range"] { width: 100%; margin-top: 4px; accent-color: #8b5cf6; }
+.tuner__out { margin: 6px 0 10px; color: var(--cyan-bright); }
+.tuner__btns { display: flex; gap: 8px; }
+.tuner button {
+  flex: 1; cursor: pointer;
+  background: none; color: var(--text);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 0; font: inherit;
+}
+.tuner button:hover { border-color: var(--violet); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ag path, .ag circle, .ag rect, .ag__eyes rect, .ag__tag { transition-duration: .01ms !important; }
+  .ag-fig.is-rig .ag__eyes rect { animation: none; }
+}
