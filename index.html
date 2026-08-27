@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/hero-machine.css" />
+  <link rel="stylesheet" href="css/newsletter.css" />
 
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
@@ -78,6 +79,7 @@
         <a class="magnetic" href="#about" data-i18n="nav.about">About</a>
         <a class="magnetic" href="#expertise" data-i18n="nav.expertise">Expertise</a>
         <a class="magnetic" href="#journey" data-i18n="nav.journey">Journey</a>
+        <a class="magnetic" href="#newsletter" data-i18n="nav.newsletter">Newsletter</a>
         <a class="magnetic" href="#contact" data-i18n="nav.contact">Contact</a>
         <a class="magnetic dnav__gallery" href="index-gallery.html" data-i18n="nav.gallery">Gallery ✦</a>
       </nav>
@@ -102,8 +104,9 @@
       <a href="#about"><i class="mono">01</i><span data-i18n="nav.about">About</span></a>
       <a href="#expertise"><i class="mono">02</i><span data-i18n="nav.expertise">Expertise</span></a>
       <a href="#journey"><i class="mono">03</i><span data-i18n="nav.journey">Journey</span></a>
-      <a href="#contact"><i class="mono">04</i><span data-i18n="nav.contact">Contact</span></a>
-      <a href="index-gallery.html"><i class="mono">05</i><span data-i18n="nav.gallery">Gallery ✦</span></a>
+      <a href="#newsletter"><i class="mono">04</i><span data-i18n="nav.newsletter">Newsletter</span></a>
+      <a href="#contact"><i class="mono">05</i><span data-i18n="nav.contact">Contact</span></a>
+      <a href="index-gallery.html"><i class="mono">06</i><span data-i18n="nav.gallery">Gallery ✦</span></a>
     </nav>
     <p class="menu-overlay__meta mono">Sofia, Bulgaria — <span data-i18n="hero.worldwide">working worldwide</span></p>
   </div>
@@ -647,11 +650,54 @@
       <img class="appear__preview" id="appearPreview" src="" alt="" aria-hidden="true" />
     </section>
 
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="section nl" id="newsletter">
+      <div class="nl__glow" aria-hidden="true"></div>
+      <div class="section__inner">
+        <p class="section__label mono reveal"><span data-i18n="nl.label">05 — Newsletter</span></p>
+
+        <div class="nl__grid">
+          <div class="nl__intro reveal">
+            <p class="nl__eyebrow mono" data-i18n="nl.eyebrow">// weekly, on LinkedIn</p>
+
+            <h2 class="nl__title">
+              <span class="nl__title-a">AI</span><span class="nl__title-b">Insider</span>
+            </h2>
+            <p class="nl__sub" data-i18n="nl.sub">AI на практика</p>
+
+            <p class="nl__desc" data-i18n="nl.desc">Практически идеи за изкуствен интелект,
+              бизнес, образование и света, който предстои.</p>
+
+            <ul class="nl__stats">
+              <li>
+                <span class="stat__num nl__num" data-count="420" data-suffix="+">420+</span>
+                <b class="mono" data-i18n="nl.subs">subscribers</b>
+              </li>
+              <li>
+                <span class="stat__num nl__num" data-count="10">10</span>
+                <b class="mono" data-i18n="nl.issues">editions</b>
+              </li>
+            </ul>
+
+            <a class="btn btn--primary btn--lg magnetic nl-link" href="#" target="_blank"
+               rel="noopener" data-i18n="nl.cta">Subscribe on LinkedIn</a>
+          </div>
+
+          <div class="nl__list reveal">
+            <ol class="nl__rows" id="nlList"></ol>
+            <a class="nl__all mono magnetic nl-link" href="#" target="_blank" rel="noopener"
+               data-i18n="nl.all">all editions ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== CONTACT ===== -->
     <section class="section contact" id="contact">
       <div class="contact__glow" aria-hidden="true"></div>
       <div class="section__inner">
-        <p class="section__label mono reveal"><span data-i18n="ct.label">05 — Contact</span></p>
+        <p class="section__label mono reveal"><span data-i18n="ct.label">06 — Contact</span></p>
         <h2 class="contact__title reveal">
           <span data-i18n="ct.title1">Let's build</span><br />
           <span class="contact__title-accent" data-i18n="ct.title2">what's next.</span>
@@ -682,6 +728,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/newsletter.js"></script>
   <script src="js/hero-machine.js"></script>
   <script type="module" src="js/scene.js"></script>
 </body>

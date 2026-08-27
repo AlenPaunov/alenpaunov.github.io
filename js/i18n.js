@@ -12,6 +12,15 @@ const I18N = {
     "droid.hintTap": "tap to boot ✦",
     "nav.expertise": "Expertise",
     "nav.journey": "Journey",
+    "nav.newsletter": "Newsletter",
+    "nl.label": "05 — Newsletter",
+    "nl.eyebrow": "// weekly, on LinkedIn",
+    "nl.sub": "AI in practice",
+    "nl.desc": "Practical thinking on artificial intelligence, business, education and the world that is coming.",
+    "nl.subs": "subscribers",
+    "nl.issues": "editions",
+    "nl.cta": "Subscribe on LinkedIn",
+    "nl.all": "all editions ↗",
     "nav.contact": "Contact",
     "nav.gallery": "Gallery ✦",
 
@@ -64,7 +73,7 @@ const I18N = {
     "ap.label": "04 — Appearances",
     "ap.title": "Talks, media & lectures",
 
-    "ct.label": "05 — Contact",
+    "ct.label": "06 — Contact",
     "ct.title1": "Let's build",
     "ct.title2": "what's next.",
 
@@ -83,6 +92,15 @@ const I18N = {
     "droid.hintTap": "докосни за старт ✦",
     "nav.expertise": "Експертиза",
     "nav.journey": "Път",
+    "nav.newsletter": "Бюлетин",
+    "nl.label": "05 — Бюлетин",
+    "nl.eyebrow": "// седмично, в LinkedIn",
+    "nl.sub": "AI на практика",
+    "nl.desc": "Практически идеи за изкуствен интелект, бизнес, образование и света, който предстои.",
+    "nl.subs": "абонати",
+    "nl.issues": "броя",
+    "nl.cta": "Абонирай се в LinkedIn",
+    "nl.all": "всички броеве ↗",
     "nav.contact": "Контакт",
     "nav.gallery": "Галерия ✦",
 
@@ -135,7 +153,7 @@ const I18N = {
     "ap.label": "04 — Участия",
     "ap.title": "Лекции, медии и участия",
 
-    "ct.label": "05 — Контакт",
+    "ct.label": "06 — Контакт",
     "ct.title1": "Да създадем",
     "ct.title2": "бъдещето.",
 
