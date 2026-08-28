@@ -91,16 +91,27 @@
   flex: 1 1 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+  grid-template-rows: 1fr auto auto auto auto 1fr;
   grid-template-areas:
+    ".      photo"
     "kicker photo"
     "name   photo"
     "sub    photo"
     "cta    photo"
-    "panel  photo";
-  align-content: center;
+    ".      photo";
+  align-content: stretch;
   column-gap: clamp(24px, 4vw, 72px);
   width: 100%; max-width: 1600px; margin: 0 auto;
-  padding: calc(var(--nav-h) + 28px) var(--pad-x) 92px;
+  padding: calc(var(--nav-h) + 22px) var(--pad-x) 34px;
+}
+
+/* portrait with the status card tucked under it */
+.dhero__right {
+  grid-area: photo;
+  position: relative;
+  justify-self: center; align-self: center;
+  width: max-content; max-width: 100%;
+  min-width: 0;
 }
 
 .dhero__kicker {
@@ -272,14 +283,19 @@ html.is-boot .droid__hint, html.has-booted .droid__hint { opacity: 0; animation:
 .dhero__cta .btn { padding: 15px 30px; font-size: .95rem; }
 
 .dpanel {
-  grid-area: panel; justify-self: start;
-  margin-top: 36px;
-  width: 250px; max-width: 100%;
+  /* sits on the faded-out bottom of the portrait, so it costs no layout height */
+  position: absolute; left: 50%; bottom: 10px;
+  transform: translateX(-50%);
+  width: min(100%, 460px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 20px; row-gap: 11px;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 16px 16px 14px;
-  background: rgba(12,12,21,.55);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  padding: 14px 18px 13px;
+  background: rgba(12,12,21,.62);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   font-size: .64rem; letter-spacing: .1em;
   transition: border-color .5s, box-shadow .5s;
 }
@@ -287,13 +303,13 @@ html.is-boot .dpanel {
   border-color: rgba(34,211,238,.35);
   box-shadow: 0 0 40px rgba(34,211,238,.12);
 }
-.dpanel__label { display: block; color: var(--muted); }
-.dpanel__value { display: block; margin-top: 5px; color: var(--text); }
+.dpanel__label { color: var(--muted); }
+.dpanel__value { color: var(--text); justify-self: end; }
 .dpanel__value::before { content: attr(data-h); }
 html.is-boot .dpanel__value::before { content: attr(data-d); color: var(--cyan); }
 
 .dpanel__bar {
-  margin: 12px 0 12px;
+  grid-column: 1 / -1;
   height: 3px; border-radius: 3px;
   background: rgba(255,255,255,.08); overflow: hidden;
 }
@@ -304,10 +320,14 @@ html.is-boot .dpanel__value::before { content: attr(data-d); color: var(--cyan);
 }
 html.is-boot .dpanel__bar i { width: 100%; }
 
-.dpanel__rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
-.dpanel__rows li { display: flex; justify-content: space-between; gap: 10px; }
+.dpanel__rows {
+  grid-column: 1 / -1;
+  list-style: none; margin: 0; padding: 0;
+  display: flex; justify-content: space-between; gap: 14px;
+}
+.dpanel__rows li { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .dpanel__rows b { font-weight: 400; color: var(--muted); }
-.dpanel__rows span { color: var(--text); text-align: right; }
+.dpanel__rows span { color: var(--text); }
 .dpanel__rows span::before { content: attr(data-h); }
 html.is-boot .dpanel__rows span::before { content: attr(data-d); color: var(--cyan-bright); }
 
@@ -322,14 +342,14 @@ html.is-boot .dpanel__rows span::before { content: attr(data-d); color: var(--cy
    ============================================================ */
 @media (max-width: 1180px) {
   .dhero__name { font-size: clamp(2.7rem, 7.6vw, 5.4rem); }
-  .dpanel { display: none; }
 }
 
 @media (max-width: 1020px) {
   .dhero { min-height: auto; }
   .dhero__grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "kicker" "name" "photo" "sub" "cta" "panel";
+    grid-template-rows: none;
+    grid-template-areas: "kicker" "name" "photo" "sub" "cta";
     align-content: start;
     padding-bottom: 56px;
   }
@@ -354,6 +374,8 @@ html.is-boot .dpanel__rows span::before { content: attr(data-d); color: var(--cy
   .dhero__name { font-size: clamp(2.7rem, 13.5vw, 4.4rem); margin-bottom: 18px; }
   .dhero__cta { flex-direction: column; align-items: stretch; }
   .dhero__cta .btn { width: 100%; }
+  .dpanel { font-size: .6rem; padding: 12px 14px 11px; bottom: 0; }
+  .dpanel__rows { gap: 10px; }
 }
 
 /* ============================================================

@@ -21,10 +21,10 @@ if (canvas && !reduced) {
 function init() {
   canvas.dataset.taken = "1";   // lets a fallback know the real scene is running
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const COUNT = isMobile ? 110 : 240;
-  const SPARK_COUNT = isMobile ? 24 : 60;
+  const COUNT = isMobile ? 55 : 115;
+  const SPARK_COUNT = isMobile ? 12 : 26;
   const BOUNDS = 24;
-  const LINK_DIST = isMobile ? 5.5 : 4.8;
+  const LINK_DIST = isMobile ? 6.4 : 5.8;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -145,7 +145,7 @@ function init() {
   const lMat = new THREE.LineBasicMaterial({
     vertexColors: true,
     transparent: true,
-    opacity: 0.45,
+    opacity: 0.3,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   });

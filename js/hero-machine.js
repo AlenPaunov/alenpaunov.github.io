@@ -432,10 +432,10 @@
 
     function build() {
       var isMobile = window.matchMedia("(max-width: 768px)").matches;
-      var COUNT = isMobile ? 110 : 240;
-      var SPARKS = isMobile ? 24 : 60;
+      var COUNT = isMobile ? 55 : 115;
+      var SPARKS = isMobile ? 12 : 26;
       var BOUNDS = 24;
-      var LINK = isMobile ? 5.5 : 4.8, LINK2 = LINK * LINK;
+      var LINK = isMobile ? 6.4 : 5.8, LINK2 = LINK * LINK;
       var DOT = isMobile ? 0.30 : 0.26;
       var SPK = isMobile ? 0.60 : 0.52;
       var CAM = 26, FOV = Math.tan((60 * Math.PI / 180) / 2);
@@ -551,7 +551,7 @@
             var dx = pi.x - pj.x, dy = pi.y - pj.y, dz = pi.z - pj.z;
             var d2 = dx * dx + dy * dy + dz * dz;
             if (d2 >= LINK2 || !scr[j].ok) continue;
-            var fade = (1 - d2 / LINK2) * 0.45;
+            var fade = (1 - d2 / LINK2) * 0.3;
             var ci = pi.c, cj = pj.c;
             var gr = x.createLinearGradient(si.X, si.Y, scr[j].X, scr[j].Y);
             gr.addColorStop(0, "rgba(" + (ci[0] | 0) + "," + (ci[1] | 0) + "," + (ci[2] | 0) + "," + fade.toFixed(3) + ")");
