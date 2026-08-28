@@ -1,9 +1,9 @@
 /* ============================================================
    hero-machine.js
-   1. hero — liquid metal poured over the portrait; the machine
+   1. hero – liquid metal poured over the portrait; the machine
       version of the same shot shows inside the liquid.
-   2. about portrait — the v1 android wireframe, on hover.
-   3. hero dots — a 2D fallback if the three.js module never runs.
+   2. about portrait – the v1 android wireframe, on hover.
+   3. hero dots – a 2D fallback if the three.js module never runs.
    Open the page with ?tune to get alignment controls.
    ============================================================ */
 (function () {
@@ -24,7 +24,7 @@
   function nowMs() { return performance.now(); }
 
   /* ============================================================
-     1 — LIQUID REVEAL
+     1 – LIQUID REVEAL
      ============================================================ */
   function liquid() {
     var fig = document.getElementById("term");
@@ -57,7 +57,7 @@
     } catch (e) { /* private mode */ }
 
     var img = new Image(); img.src = photo.currentSrc || photo.src;
-    var mach = new Image(); mach.src = "img/portrait-terminator.jpg";
+    var mach = new Image(); mach.src = "img/portrait-android.jpg";
 
     Promise.all([load(img), load(mach)]).then(function () {
       resize();
@@ -224,7 +224,7 @@
       rk.drawImage(img, 0, 0, GW, GH);
       rk.globalCompositeOperation = "source-over";
 
-      // the machine, seen through the liquid — it wobbles a little
+      // the machine, seen through the liquid – it wobbles a little
       var wob = Math.sin(tSec * 1.7) * 1.6 * S, wob2 = Math.cos(tSec * 1.3) * 1.6 * S;
       vx.setTransform(1, 0, 0, 1, 0, 0);
       vx.clearRect(0, 0, W, H);
@@ -253,7 +253,7 @@
     function tick() {
       tSec += 0.016;
 
-      // hold, then ease out — this is what makes the liquid leave smoothly
+      // hold, then ease out – this is what makes the liquid leave smoothly
       // instead of the picture snapping back once the ink happens to run out
       var out = nowMs() - lastInk - HOLD;
       if (autoOn || out <= 0) {
@@ -377,7 +377,7 @@
         if (a === "copy") {
           var txt = "var T = { s: " + T.s + ", x: " + T.x + ", y: " + T.y + " };";
           if (navigator.clipboard) navigator.clipboard.writeText(txt);
-          out.textContent = "copied — paste into hero-machine.js";
+          out.textContent = "copied – paste into hero-machine.js";
         }
       });
       sync();
@@ -390,7 +390,7 @@
   }
 
   /* ============================================================
-     2 — the v1 android rig, on the about portrait
+     2 – the v1 android rig, on the about portrait
      ============================================================ */
   function aboutRig() {
     var fig = document.getElementById("aboutPortrait");
@@ -412,7 +412,7 @@
   }
 
   /* ============================================================
-     3 — hero dots
+     3 – hero dots
      scene.js is an ES module behind an import map: over file://, or
      with the CDN blocked, it never runs. This paints the same field
      in 2D so the hero never loses its dots. It stands down the moment
@@ -541,7 +541,7 @@
         x.clearRect(0, 0, W, H);
         x.globalCompositeOperation = "lighter";
 
-        // links — colour fades with distance, exactly like the shader path
+        // links – colour fades with distance, exactly like the shader path
         x.lineWidth = 1;
         for (i = 0; i < COUNT; i++) {
           if (!scr[i].ok) continue;

@@ -1,5 +1,5 @@
 /* ============================================================
-   hero-machine.css — liquid terminator reveal + android rig
+   hero-machine.css – liquid terminator reveal + android rig
    Loads AFTER style.css and hero.css; only the delta.
    ============================================================ */
 
@@ -21,16 +21,17 @@
 .dnav__links a:hover::after { transform: scaleX(1); transform-origin: left; }
 .dnav__gallery { color: var(--cyan); }
 
-/* the CTA pill would crowd the links — the menu keeps everything anyway */
+/* the CTA pill would crowd the links – the menu keeps everything anyway */
 .dnav__cta { display: none; }
 
 /* ---------- the portrait ---------- */
-.dhero__stage { padding-top: var(--nav-h); box-sizing: border-box; }
-
 .term {
+  grid-area: photo;
   position: relative; z-index: 3;
+  justify-self: center; align-self: center;
   margin: 0;
-  height: min(88svh, 900px);
+  height: min(76svh, 820px);
+  max-width: 100%;
   aspect-ratio: 933 / 1400;
   outline: none;
 }
@@ -65,12 +66,6 @@
 html.is-boot .term__hint, html.has-booted .term__hint { opacity: 0; animation: none; }
 
 /* ---------- machine mode tints the chrome red instead of cyan ---------- */
-html.is-boot .dmark__ring-fg { stroke: #ff4a18; filter: drop-shadow(0 0 7px rgba(255,74,24,.75)); }
-html.is-boot .dmark__plate { stroke: #ff6a3a; }
-html.is-boot .dmark__eye { fill: #ff4a18; }
-html.is-boot .dmark__mouth, html.is-boot .dmark__ant { stroke: #ff7a4a; }
-html.is-boot .dmark__antdot { fill: #ff4a18; }
-html.is-boot .dmark__read-d { color: #ff6a3a; }
 
 html.is-boot .dpanel {
   border-color: rgba(255,74,24,.4);
@@ -89,12 +84,11 @@ html.is-boot .dpanel__bar i { background: linear-gradient(90deg, #7c3aed, #ff4a1
   .dnav__links { display: none; }
 }
 @media (max-width: 900px) {
-  .term { height: min(64svh, 600px); }
+  .term { height: min(58svh, 560px); margin: 18px 0 30px; }
   .term__hint { bottom: -22px; }
 }
 @media (max-width: 620px) {
-  .dhero__stage { padding-top: calc(var(--nav-h) + 112px); }
-  .term { height: 56svh; }
+  .term { height: 54svh; margin: 14px 0 26px; }
   .term__hint { bottom: 2px; font-size: .6rem; }
 }
 
@@ -161,7 +155,7 @@ html.is-boot .dpanel__bar i { background: linear-gradient(90deg, #7c3aed, #ff4a1
 .ag-fig.is-rig .ag-hint { opacity: 0; }
 
 /* ============================================================
-   ?tune — alignment controls for the machine picture
+   ?tune – alignment controls for the machine picture
    ============================================================ */
 .tuner {
   position: fixed; left: 18px; bottom: 18px; z-index: 300;

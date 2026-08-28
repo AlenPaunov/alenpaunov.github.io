@@ -1,5 +1,5 @@
 /* ============================================================
-   i18n — EN / BG dictionary + instant switcher
+   i18n – EN / BG dictionary + instant switcher
    ============================================================ */
 
 const I18N = {
@@ -7,13 +7,13 @@ const I18N = {
     "nav.about": "About",
     "droid.hint": "hover to boot ✦",
     "term.hint": "paint over me ✦",
-    "ag.hint": "— hover me",
+    "ag.hint": "– hover me",
     "term.hintTap": "drag across me ✦",
     "droid.hintTap": "tap to boot ✦",
     "nav.expertise": "Expertise",
     "nav.journey": "Journey",
     "nav.newsletter": "Newsletter",
-    "nl.label": "05 — Newsletter",
+    "nl.label": "04 – Newsletter",
     "nl.eyebrow": "// weekly, on LinkedIn",
     "nl.sub": "AI in practice",
     "nl.desc": "Practical thinking on artificial intelligence, business, education and the world that is coming.",
@@ -21,6 +21,7 @@ const I18N = {
     "nl.issues": "editions",
     "nl.cta": "Subscribe on LinkedIn",
     "nl.all": "all editions ↗",
+    "nav.appearances": "Appearances",
     "nav.contact": "Contact",
     "nav.gallery": "Gallery ✦",
 
@@ -31,29 +32,29 @@ const I18N = {
     "hero.scroll": "scroll",
     "hero.worldwide": "working worldwide",
 
-    "about.label": "01 — About",
+    "about.label": "01 – About",
     "about.title": "Technology is the tool. People are the point.",
-    "about.p1": "For more than a decade I've lived at the intersection of education and technology — teaching over 12,500 students, directing programmes at Bulgaria's leading tech academies, and building TeachMe as CEO and co-founder.",
-    "about.p2": "Today I help organisations integrate AI the way it actually works: strategically, ethically, and with people at the centre. Not chasing tools — building capability.",
-    "about.p3": "Outside of work I'm a father, a passionate cook and a relentless reader. The best systems I know — classrooms, companies, families — all run on the same thing: trust.",
+    "about.p1": "For more than a decade I've lived at the intersection of education and technology – teaching over 12,500 students, directing programmes at Bulgaria's leading tech academies, and building TeachMe as CEO and co-founder.",
+    "about.p2": "Today I help organisations integrate AI the way it actually works: strategically, ethically, and with people at the centre. Not chasing tools – building capability.",
+    "about.p3": "Outside of work I'm a father, a passionate cook and a relentless reader. The best systems I know – classrooms, companies, families – all run on the same thing: trust.",
 
-    "exp.label": "02 — Expertise",
+    "exp.label": "02 – Expertise",
     "exp.title": "What I bring to the table",
     "exp.c1t": "AI Integration Strategy",
     "exp.c1d": "Audits, roadmaps and hands-on guidance that take AI from a slide deck into your daily operations.",
     "exp.c2t": "AI in Education",
     "exp.c2d": "Curriculum design and AI-powered learning experiences that make educators faster and learners stronger.",
     "exp.c3t": "Technical Training",
-    "exp.c3d": "Workshops and live trainings for teams — from prompt literacy to building with LLM APIs.",
+    "exp.c3d": "Workshops and live trainings for teams – from prompt literacy to building with LLM APIs.",
     "exp.c4t": "Product Development",
-    "exp.c4d": "From idea to launch — I've built and scaled educational products used by thousands of people.",
+    "exp.c4d": "From idea to launch – I've built and scaled educational products used by thousands of people.",
 
     "stats.s1": "students taught",
     "stats.s2": "years in education",
     "stats.s3": "live lessons",
     "stats.s4": "media features",
 
-    "jr.label": "03 — Journey",
+    "jr.label": "03 – Journey",
     "jr.title": "The road so far",
     "jr.now": "now",
     "jr.now2": "now",
@@ -70,10 +71,10 @@ const I18N = {
     "jr.t5r": "Educational Director",
     "jr.t5d": "Leading award-winning, AI-first engineering education at Sirma Group.",
 
-    "ap.label": "04 — Appearances",
+    "ap.label": "05 – Appearances",
     "ap.title": "Talks, media & lectures",
 
-    "ct.label": "06 — Contact",
+    "ct.label": "06 – Contact",
     "ct.title1": "Let's build",
     "ct.title2": "what's next.",
 
@@ -87,13 +88,13 @@ const I18N = {
     "nav.about": "За мен",
     "droid.hint": "мини с мишката ✦",
     "term.hint": "нарисувай ме ✦",
-    "ag.hint": "— мини отгоре",
+    "ag.hint": "– мини отгоре",
     "term.hintTap": "плъзни по мен ✦",
     "droid.hintTap": "докосни за старт ✦",
     "nav.expertise": "Експертиза",
     "nav.journey": "Път",
     "nav.newsletter": "Бюлетин",
-    "nl.label": "05 — Бюлетин",
+    "nl.label": "04 – Бюлетин",
     "nl.eyebrow": "// седмично, в LinkedIn",
     "nl.sub": "AI на практика",
     "nl.desc": "Практически идеи за изкуствен интелект, бизнес, образование и света, който предстои.",
@@ -101,6 +102,7 @@ const I18N = {
     "nl.issues": "броя",
     "nl.cta": "Абонирай се в LinkedIn",
     "nl.all": "всички броеве ↗",
+    "nav.appearances": "Участия",
     "nav.contact": "Контакт",
     "nav.gallery": "Галерия ✦",
 
@@ -111,29 +113,29 @@ const I18N = {
     "hero.scroll": "скрол",
     "hero.worldwide": "работя по цял свят",
 
-    "about.label": "01 — За мен",
+    "about.label": "01 – За мен",
     "about.title": "Технологията е инструментът. Хората са смисълът.",
-    "about.p1": "Повече от десетилетие живея на пресечната точка между образование и технологии — преподавал съм на над 12 500 ученици, ръководил съм програми във водещите технологични академии в България и изграждам TeachMe като CEO и съосновател.",
-    "about.p2": "Днес помагам на организации да интегрират AI така, както наистина работи: стратегически, етично и с хората в центъра. Не гонене на инструменти — изграждане на способности.",
-    "about.p3": "Извън работата съм баща, страстен готвач и неуморен читател. Най-добрите системи, които познавам — класни стаи, компании, семейства — работят на едно и също гориво: доверие.",
+    "about.p1": "Повече от десетилетие живея на пресечната точка между образование и технологии – преподавал съм на над 12 500 ученици, ръководил съм програми във водещите технологични академии в България и изграждам TeachMe като CEO и съосновател.",
+    "about.p2": "Днес помагам на организации да интегрират AI така, както наистина работи: стратегически, етично и с хората в центъра. Не гонене на инструменти – изграждане на способности.",
+    "about.p3": "Извън работата съм баща, страстен готвач и неуморен читател. Най-добрите системи, които познавам – класни стаи, компании, семейства – работят на едно и също гориво: доверие.",
 
-    "exp.label": "02 — Експертиза",
+    "exp.label": "02 – Експертиза",
     "exp.title": "Какво нося със себе си",
     "exp.c1t": "AI интеграционна стратегия",
     "exp.c1d": "Одити, пътни карти и практическо водене, които пренасят AI от презентацията в ежедневната ви работа.",
     "exp.c2t": "AI в образованието",
-    "exp.c2d": "Дизайн на учебни програми и AI-базирани учебни преживявания, които правят преподавателите по-бързи, а учащите — по-силни.",
+    "exp.c2d": "Дизайн на учебни програми и AI-базирани учебни преживявания, които правят преподавателите по-бързи, а учащите – по-силни.",
     "exp.c3t": "Технически обучения",
-    "exp.c3d": "Уъркшопи и обучения на живо за екипи — от грамотност с промптове до разработка с LLM API-та.",
+    "exp.c3d": "Уъркшопи и обучения на живо за екипи – от грамотност с промптове до разработка с LLM API-та.",
     "exp.c4t": "Разработка на продукти",
-    "exp.c4d": "От идея до пазар — изграждал съм и съм скалирал образователни продукти, ползвани от хиляди хора.",
+    "exp.c4d": "От идея до пазар – изграждал съм и съм скалирал образователни продукти, ползвани от хиляди хора.",
 
     "stats.s1": "обучени ученици",
     "stats.s2": "години в образованието",
     "stats.s3": "уроци на живо",
     "stats.s4": "медийни участия",
 
-    "jr.label": "03 — Път",
+    "jr.label": "03 – Път",
     "jr.title": "Пътят дотук",
     "jr.now": "сега",
     "jr.now2": "сега",
@@ -150,10 +152,10 @@ const I18N = {
     "jr.t5r": "Директор „Образование“",
     "jr.t5d": "Ръководя награждаваното AI-first инженерно обучение в Sirma Group.",
 
-    "ap.label": "04 — Участия",
+    "ap.label": "05 – Участия",
     "ap.title": "Лекции, медии и участия",
 
-    "ct.label": "06 — Контакт",
+    "ct.label": "06 – Контакт",
     "ct.title1": "Да създадем",
     "ct.title2": "бъдещето.",
 

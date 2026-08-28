@@ -1,5 +1,5 @@
 /* ============================================================
-   main.js — GSAP animations, cursor, counters, menu, rotator
+   main.js – GSAP animations, cursor, counters, menu, rotator
    ============================================================ */
 
 document.documentElement.classList.add("js");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTilt();
     initAppearPreview();
   } catch (err) {
-    // Something failed mid-setup — never leave the hero/content hidden.
+    // Something failed mid-setup – never leave the hero/content hidden.
     revealAll();
   }
 });

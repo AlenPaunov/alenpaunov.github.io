@@ -1,5 +1,5 @@
 /* ============================================================
-   scene.js — Three.js neural-network particle field (hero bg)
+   scene.js – Three.js neural-network particle field (hero bg)
    Violet → cyan palette, mouse parallax, mobile-aware.
    ============================================================ */
 
@@ -12,7 +12,7 @@ if (canvas && !reduced) {
   try {
     init();
   } catch (err) {
-    // WebGL unavailable — the CSS gradient glow stays as the fallback.
+    // WebGL unavailable – the CSS gradient glow stays as the fallback.
     canvas.style.display = "none";
     console.warn("Hero 3D scene disabled:", err.message);
   }
