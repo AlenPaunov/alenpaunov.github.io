@@ -105,15 +105,6 @@
   padding: calc(var(--nav-h) + 22px) var(--pad-x) 34px;
 }
 
-/* portrait with the status card tucked under it */
-.dhero__right {
-  grid-area: photo;
-  position: relative;
-  justify-self: center; align-self: center;
-  width: max-content; max-width: 100%;
-  min-width: 0;
-}
-
 .dhero__kicker {
   grid-area: kicker;
   margin: 0 0 22px; color: var(--muted); max-width: 42ch;

@@ -26,11 +26,13 @@
 
 /* ---------- the portrait ---------- */
 .term {
+  grid-area: photo;
+  justify-self: center; align-self: center;
   position: relative; z-index: 3;
   margin: 0;
   /* never taller than the room left under the header, so the hero always fits */
   height: min(84svh, calc(100svh - var(--nav-h) - 62px), 900px);
-  max-width: 100%;
+  width: auto; max-width: 100%;
   aspect-ratio: 933 / 1400;
   outline: none;
 }
@@ -83,12 +85,16 @@ html.is-boot .dpanel__bar i { background: linear-gradient(90deg, #7c3aed, #ff4a1
 @media (max-width: 1120px) {
   .dnav__links { display: none; }
 }
-@media (max-width: 900px) {
-  .term { height: min(62svh, 600px); margin: 18px 0 0; }
+/* matches the breakpoint where the hero grid drops to one column */
+@media (max-width: 1020px) {
+  .term { height: auto; width: min(58vw, 430px); margin: 20px 0 0; }
   .term__hint { bottom: 112px; right: 2px; }
 }
+@media (max-width: 900px) {
+  .term { width: min(74vw, 400px); margin: 18px 0 0; }
+}
 @media (max-width: 620px) {
-  .term { height: 58svh; margin: 14px 0 0; }
+  .term { height: auto; width: min(80vw, 340px); margin: 14px 0 0; }
   .term__hint { bottom: 104px; right: 0; font-size: .6rem; }
 }
 
