@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Тетрадката — Ален Паунов</title>
+  <meta name="description" content="AI Тетрадката: топло, практично място да научиш Claude и ChatGPT. Преписани промптове, честни съвети и уроци от учител с 12 500+ ученици." />
+  <meta property="og:title" content="AI Тетрадката" />
+  <meta property="og:description" content="Тетрадка с всичко, което един зает човек трябва да знае за Claude и ChatGPT. Води Ален Паунов." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232e4038'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f2efe6' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Neucha&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/notebook.css" />
+</head>
+<body>
+
+  <!-- ===== NAV (хартиена лента) ===== -->
+  <header class="tnav">
+    <a class="tnav__logo" href="index.html">AP<span>_</span></a>
+    <nav class="tnav__links" aria-label="Основна навигация">
+      <a href="#start">Началото</a>
+      <a href="#prompts">Промптовете</a>
+      <a href="#projects">Проектите</a>
+      <a href="#practice">Задачите</a>
+      <a href="#watch">Гледай</a>
+    </nav>
+    <a class="tnav__back" href="index.html">← към сайта</a>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO: черната дъска ===== -->
+    <section class="board hero-board" id="top">
+      <div class="board__frame">
+        <p class="chalk-script hero-board__welcome">Добре дошъл в час. Спокойно, тук е приятно.</p>
+
+        <h1 class="hero-board__title">
+          <span class="chalk-script hero-board__ai">AI</span>
+          <span class="hero-board__word">Тетрадката</span>
+        </h1>
+        <svg class="hero-board__underline" viewBox="0 0 420 18" aria-hidden="true">
+          <path d="M6 12 C 90 4, 200 16, 414 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+
+        <p class="hero-board__sub">Тетрадка за заети хора, които искат да работят с Claude и ChatGPT без страх и без излишни термини.</p>
+
+        <div class="hero-board__cta">
+          <a class="chalk-btn" href="#start">Отвори тетрадката</a>
+        </div>
+
+        <div class="hero-board__pins" aria-hidden="true">
+          <figure class="pinned pinned--photo">
+            <img src="img/portrait-about.png" alt="" loading="lazy" />
+            <figcaption class="hand">учителят :)</figcaption>
+          </figure>
+          <div class="pinned pinned--note">
+            <p class="hand">Позволено е да си нов в това.</p>
+          </div>
+        </div>
+
+        <span class="chalk-doodle chalk-doodle--star" aria-hidden="true">✦</span>
+        <span class="chalk-doodle chalk-doodle--arrow" aria-hidden="true">⤹</span>
+      </div>
+      <div class="board__tray" aria-hidden="true"><span class="board__chalkpiece"></span><span class="board__duster"></span></div>
+    </section>
+
+    <!-- ===== ТЕТРАДКА: откъде да започнем ===== -->
+    <section class="paper paper--lined" id="start">
+      <div class="paper__inner">
+        <h2 class="hand-title">Откъде да започнем?</h2>
+        <p class="paper__lead">Не ти трябва курс от 40 часа. Трябва ти вярната първа страница. Избери своята:</p>
+
+        <ol class="startlist">
+          <li class="startlist__item">
+            <span class="startlist__num hand">1.</span>
+            <div>
+              <h3>Никога не съм ползвал AI</h3>
+              <p>Идеално. Започваш чист, без лоши навици. Отвори <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> или <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a>, регистрирай се безплатно и му напиши каквото би написал на умен колега. Толкова е.</p>
+              <p class="margin-note hand">няма грешен първи въпрос!</p>
+            </div>
+          </li>
+          <li class="startlist__item">
+            <span class="startlist__num hand">2.</span>
+            <div>
+              <h3>Пробвал съм, но не ми върши работа</h3>
+              <p>Почти винаги причината е една: казваш му <em>какво</em> искаш, но не и <em>за кого, защо и в какъв вид</em>. Слез до промптовете по-долу и препиши един. Ще усетиш разликата от първия опит.</p>
+            </div>
+          </li>
+          <li class="startlist__item">
+            <span class="startlist__num hand">3.</span>
+            <div>
+              <h3>Ползвам го всеки ден, искам повече</h3>
+              <p>Тогава прескочи основите. Виж лекциите ми долу за агенти и AI-first разработка, или ми пиши направо за обучение за твоя екип.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== ПРОМПТОВЕТЕ: листчета на каре ===== -->
+    <section class="paper paper--plain" id="prompts">
+      <div class="paper__inner">
+        <h2 class="hand-title">Преписани промптове</h2>
+        <p class="paper__lead">Шест промпта от моята тетрадка, проверени стотици пъти. Натисни „препиши" и го поправи за твоя случай. Работят и в Claude, и в ChatGPT.</p>
+
+        <div class="cards">
+          <article class="notecard notecard--tilt-l">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Дългият документ</h3>
+            <p class="notecard__use">Когато нямаш час и половина за 40 страници.</p>
+            <pre class="notecard__prompt" tabindex="0">Прикачам документ. Обобщи го за зает човек:
+1) Три изречения същина.
+2) Петте най-важни точки с по едно изречение защо ме засягат.
+3) Какво решение се очаква от мен и до кога.
+Пиши на български, без празни фрази.</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+
+          <article class="notecard notecard--tilt-r">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Неудобният имейл</h3>
+            <p class="notecard__use">Да е твърд по темата, мек към човека.</p>
+            <pre class="notecard__prompt" tabindex="0">Ето черновата на имейл, който ме притеснява да пратя:
+[постави текста]
+Пренапиши го така, че да е учтив, но ясен. Запази моите
+аргументи, махни оправданията, свий го наполовина.
+Дай два варианта: по-мек и по-директен.</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+
+          <article class="notecard notecard--tilt-r">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Обясни ми го човешки</h3>
+            <p class="notecard__use">За всяка тема, която те кара да кимаш неразбиращо.</p>
+            <pre class="notecard__prompt" tabindex="0">Обясни ми [тема] все едно съм любопитен
+осмокласник. Ползвай една битова аналогия.
+После ми задай три въпроса, за да провериш
+дали наистина съм разбрал. Поправи ме меко,
+ако сгреша.</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+
+          <article class="notecard notecard--tilt-l">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Планът на урока</h3>
+            <p class="notecard__use">За учители и обучители. Пести по вечер на урок.</p>
+            <pre class="notecard__prompt" tabindex="0">Ти си опитен методик. Направи ми план за 40-минутен
+урок на тема [тема] за [клас/възраст]:
+- кука за първите 3 минути
+- 2 практически задачи с растяща трудност
+- чести грешки на учениците и как да ги адресирам
+- бърза проверка за разбиране накрая</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+
+          <article class="notecard notecard--tilt-l">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Седмичното меню</h3>
+            <p class="notecard__use">Готвачът в мен настоява да е тук.</p>
+            <pre class="notecard__prompt" tabindex="0">Направи ми меню за 5 вечери за семейство с [брой] души.
+Ограничения: [алергии, време за готвене, бюджет].
+Децата не ядат [списък]. Дай и обединен списък
+за пазаруване, групиран по щандове в магазина.</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+
+          <article class="notecard notecard--tilt-r">
+            <span class="notecard__tape" aria-hidden="true"></span>
+            <h3 class="hand">Изпитай ме</h3>
+            <p class="notecard__use">Най-подценяваният начин да учиш каквото и да е.</p>
+            <pre class="notecard__prompt" tabindex="0">Ето материал, който трябва да науча: [постави го]
+Изпитвай ме въпрос по въпрос, като започнеш
+от най-важното. Чакай отговора ми, преди да
+продължиш. Дръж сметка кое бъркам и в края
+ми кажи какво да преговоря.</pre>
+            <button class="copy-btn" type="button" data-copy>препиши ✎</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== СЪВЕТИТЕ: стена от лепящи листчета ===== -->
+    <section class="paper paper--lined" id="tips">
+      <div class="paper__inner">
+        <h2 class="hand-title">Съвети от последния чин</h2>
+        <p class="paper__lead">Шест неща, които казвам на всяка първа лекция. Залепи си ги някъде:</p>
+
+        <div class="stickies">
+          <div class="sticky sticky--yellow">
+            <p class="hand">Говори му като на умен колега, не като на търсачка. Цели изречения, истинският проблем.</p>
+          </div>
+          <div class="sticky sticky--green">
+            <p class="hand">Давай контекст: кой си, за кого е резултатът и в какъв вид го искаш.</p>
+          </div>
+          <div class="sticky sticky--blue">
+            <p class="hand">Искай три варианта, не един отговор. Изборът учи повече от отговора.</p>
+          </div>
+          <div class="sticky sticky--pink">
+            <p class="hand">Проверявай фактите. Звучи еднакво уверено и когато е прав, и когато си измисля.</p>
+          </div>
+          <div class="sticky sticky--green">
+            <p class="hand">Не почвай нов чат за всяка поправка. Кажи „по-кратко", „по-просто", „друг ъгъл".</p>
+          </div>
+          <div class="sticky sticky--yellow">
+            <p class="hand">Никакви ЕГН-та, пароли и чужди тайни в чата. Личните данни си остават лични.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ПРОЕКТИТЕ: корково табло със задания ===== -->
+    <section class="cork" id="projects">
+      <div class="cork__inner">
+        <h2 class="hand-title hand-title--chalkless">Проекти за едно свободно съботно утро</h2>
+        <p class="cork__lead">Най-бързият начин да повярваш в тия инструменти е да завършиш нещо истинско. Свали си задание от таблото:</p>
+
+        <div class="cork__grid">
+          <article class="assignment">
+            <span class="assignment__pin" aria-hidden="true"></span>
+            <span class="assignment__level hand">за начинаещи</span>
+            <h3 class="hand">Личната страница</h3>
+            <p>Помоли Claude: „Направи ми лична визитка страница: кой съм, какво работя, как да ме намерят." Опиши се с няколко изречения и гледай как я строи пред очите ти в Artifacts. Готова е за един следобед, без ред код от теб.</p>
+          </article>
+
+          <article class="assignment">
+            <span class="assignment__pin" aria-hidden="true"></span>
+            <span class="assignment__level hand">за пътешественици</span>
+            <h3 class="hand">Пътеводителят</h3>
+            <p>Дай му дестинация, дати, бюджет и с кого пътуваш. Поискай маршрут по дни, какво да резервираш отсега, какво да очакваш като цени и чеклист за багажа. После спори с него: „ден 3 е претоварен, разхлаби го".</p>
+          </article>
+
+          <article class="assignment">
+            <span class="assignment__pin" aria-hidden="true"></span>
+            <span class="assignment__level hand">за родители</span>
+            <h3 class="hand">Учебният тренажор</h3>
+            <p>Снимай урока на детето и качи снимките. Поискай: „Направи 10 въпроса с отговори за проверка, от лесни към трудни, и по една подсказка за всеки." Изпитването на вечеря никога не е било по-лесно.</p>
+          </article>
+
+          <article class="assignment">
+            <span class="assignment__pin" aria-hidden="true"></span>
+            <span class="assignment__level hand">за семейството</span>
+            <h3 class="hand">Бабиният тефтер</h3>
+            <p>Снимай ръкописните рецепти на баба, преди да е станало късно. AI ги разчита, преписва ги и ги подрежда в готварска книга със съдържание, мерни единици и бележки. Подарък, който ще разплаче някого.</p>
+          </article>
+
+          <div class="assignment assignment--blank">
+            <span class="assignment__pin" aria-hidden="true"></span>
+            <p class="hand assignment__blank-text">Твоята идея тук. Направи ли нещо готино по тази тетрадка? <a href="mailto:alen.paunov@gmail.com">Разкажи ми</a>, ще я закача на таблото.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЗАДАЧИТЕ: чеклист в тетрадката ===== -->
+    <section class="paper paper--flip" id="practice">
+      <div class="paper__inner">
+        <h2 class="hand-title">Домашни за упражнение</h2>
+        <p class="paper__lead">Отмятай си ги, тетрадката помни докъде си стигнал. Три нива, без бързане:</p>
+
+        <div class="drills">
+          <h3 class="drills__level hand">Ниво 1 · загрявка</h3>
+          <label class="drill"><input type="checkbox" data-drill="d1" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Попитай го нещо, което те е било неудобно да питаш когото и да е.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d2" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Дай му свой имейл и поискай същото в три тона: официален, приятелски, много кратък.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d3" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Поискай да ти обясни новина от днес все едно си на 12 години.</span></label>
+
+          <h3 class="drills__level hand">Ниво 2 · истинска работа</h3>
+          <label class="drill"><input type="checkbox" data-drill="d4" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Качи договор или инструкция и поискай: рисковете, задълженията ми, неясните места.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d5" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Кажи му професията си и поискай да те изпита по нещо от твоята област. Дръж се, ще боли малко.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d6" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Дай му таблица или списък в безпорядък и поискай да го подреди, обобщи и намери странностите.</span></label>
+
+          <h3 class="drills__level hand">Ниво 3 · за смелите</h3>
+          <label class="drill"><input type="checkbox" data-drill="d7" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Помоли Claude да ти построи работещ калкулатор за нещо от живота ти: ипотека, калории, бакшиш за компания.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d8" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Дай му голяма задача, но поискай първо план. Одобри плана, после го карай да изпълнява стъпка по стъпка.</span></label>
+          <label class="drill"><input type="checkbox" data-drill="d9" /><span class="drill__box" aria-hidden="true"></span><span class="drill__text">Прекарай една цяла работна задача от начало до край само с AI до себе си. После сметни колко време ти спести.</span></label>
+
+          <p class="drills__progress hand" id="drillProgress" aria-live="polite">Изпълнени: 0 от 9</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== УЧЕБНИКЪТ: Claude или ChatGPT (разтворена книга) ===== -->
+    <section class="paper paper--book" id="compare">
+      <div class="paper__inner">
+        <h2 class="hand-title">Claude или ChatGPT?</h2>
+        <p class="paper__lead">Страница от учебника, без маркетинг. И двата са отлични. Разликите, които усещаш в практиката:</p>
+
+        <div class="book">
+          <div class="book__page">
+            <h3>Claude</h3>
+            <ul class="book__list">
+              <li>Осезаемо по-добър с дълги документи: договори, наредби, дипломни, цели книги.</li>
+              <li>Пише по-естествен, по-малко „изкуствен" текст, включително на български.</li>
+              <li>Artifacts и Projects: строи работещи страници и пази контекста на проекта ти.</li>
+              <li>Любимецът на програмистите в момента (Claude Code).</li>
+            </ul>
+          </div>
+          <div class="book__spine" aria-hidden="true"></div>
+          <div class="book__page">
+            <h3>ChatGPT</h3>
+            <ul class="book__list">
+              <li>Най-широката екосистема: генерира изображения, има гласов режим за разговор.</li>
+              <li>Дългосрочна памет за теб и предпочитанията ти между разговорите.</li>
+              <li>Повече готови интеграции и приложения за телефона, колата, часовника.</li>
+              <li>Огромна общност: за всяка задача някой вече е споделил рецепта.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="verdict">
+          <p class="hand verdict__text">Изводът от последния чин: избери един, живей с него две седмици, чак тогава сравнявай. Скачането между инструменти е най-сигурният начин да не научиш нито един.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== РЕЧНИКЪТ: страница от учебника ===== -->
+    <section class="paper paper--plain" id="glossary">
+      <div class="paper__inner">
+        <h2 class="hand-title">Малкият речник</h2>
+        <p class="paper__lead">Шестте думи, които ще срещаш навсякъде. Толкова стигат за началото:</p>
+
+        <dl class="glossary">
+          <div class="glossary__entry">
+            <dt>промпт</dt>
+            <dd>Това, което пишеш на AI. Колкото по-ясна е молбата, толкова по-добър е резултатът. Цялата „магия" е тук.</dd>
+          </div>
+          <div class="glossary__entry">
+            <dt>модел</dt>
+            <dd>Самият „мозък" зад чата. Claude и ChatGPT са продукти; отдолу работят модели с версии, като колите имат двигатели.</dd>
+          </div>
+          <div class="glossary__entry">
+            <dt>токен</dt>
+            <dd>Парченце текст, с което моделът смята. Дума и половина е около два токена. Затова дългите разговори „тежат".</dd>
+          </div>
+          <div class="glossary__entry">
+            <dt>контекстен прозорец</dt>
+            <dd>Колко от разговора моделът „вижда" наведнъж. Препълни ли се, началото започва да се губи. Нов разговор за нова тема.</dd>
+          </div>
+          <div class="glossary__entry">
+            <dt>халюцинация</dt>
+            <dd>Когато моделът си измисля с уверен тон: цитати, числа, съдебни дела. Не е лъжа, а статистика. Проверявай важното.</dd>
+          </div>
+          <div class="glossary__entry">
+            <dt>агент</dt>
+            <dd>AI, който не само отговаря, а върши: рови в интернет, пише файлове, изпълнява стъпки сам. Следващата голяма вълна.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== ГЛЕДАЙ И СЛУШАЙ: полароиди ===== -->
+    <section class="paper paper--lined paper--flip" id="watch">
+      <div class="paper__inner">
+        <h2 class="hand-title">Гледай и слушай</h2>
+        <p class="paper__lead">Ако предпочиташ да ти го разкажа на глас, ето откъде да започнеш:</p>
+
+        <div class="polaroids">
+          <a class="polaroid polaroid--tilt-l" href="https://www.youtube.com/watch?v=xwQ-4JJi9PQ" target="_blank" rel="noopener">
+            <img src="img/gallery/sirma-lecture.jpg" alt="Лекция AI Tools Introduction, Sirma Academy" loading="lazy" />
+            <span class="polaroid__caption hand">AI инструментите от нулата · лекция</span>
+          </a>
+          <a class="polaroid polaroid--tilt-r" href="https://www.youtube.com/watch?v=YCKp4DJq5Vc" target="_blank" rel="noopener">
+            <img src="img/gallery/giti-podcast.jpg" alt="Подкаст ГИТИ: Вход в IT индустрията" loading="lazy" />
+            <span class="polaroid__caption hand">за AI и влизането в IT · подкаст</span>
+          </a>
+          <a class="polaroid polaroid--tilt-l polaroid--low" href="https://www.bloombergtv.bg/a/16-biznes-start/148122-edin-miliard-dolara-za-izsledovatel-ai-vse-poveche-prilicha-na-golyam-balon" target="_blank" rel="noopener">
+            <img src="img/gallery/bloomberg-balon.jpg" alt="Интервю за Bloomberg TV за AI" loading="lazy" />
+            <span class="polaroid__caption hand">накъде върви AI · Bloomberg TV</span>
+          </a>
+        </div>
+
+        <p class="paper__more">Всичките ми участия са събрани в <a href="index-gallery.html">галерията</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===== ФИНАЛ: пак на дъската ===== -->
+    <section class="board homework-board" id="homework">
+      <div class="board__frame">
+        <p class="chalk-script homework-board__label">Домашното за днес:</p>
+        <h2 class="homework-board__title">Избери един промпт отгоре и го пробвай още сега.</h2>
+        <p class="homework-board__sub">А ако искаш да заведем целия ти екип или училище в час по AI, пиши ми. Обученията на живо са ми любимата част от седмицата.</p>
+        <div class="homework-board__cta">
+          <a class="chalk-btn chalk-btn--solid" href="mailto:alen.paunov@gmail.com">Пиши ми за обучение</a>
+          <a class="chalk-btn" href="index.html#contact">Всички контакти</a>
+        </div>
+        <p class="chalk-script homework-board__sign">– Ален, вашият учител по AI</p>
+      </div>
+      <div class="board__tray" aria-hidden="true"><span class="board__chalkpiece"></span></div>
+    </section>
+  </main>
+
+  <footer class="tfooter">
+    <p>© 2026 Ален Паунов · <a href="index.html">alenpaunov.com</a> · <a href="notebook.html">AI Тетрадката</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/notebook.js"></script>
+</body>
+</html>

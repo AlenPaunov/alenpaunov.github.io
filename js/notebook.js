@@ -8,6 +8,7 @@ const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.addEventListener("DOMContentLoaded", () => {
   initCopyButtons();
+  initDrills();
 
   if (reduced || typeof gsap === "undefined") {
     document.querySelectorAll(".t-reveal").forEach((el) => {
@@ -54,6 +55,32 @@ function initCopyButtons() {
   });
 }
 
+/* practice checklist: ticks persist per browser via localStorage */
+function initDrills() {
+  const boxes = [...document.querySelectorAll("[data-drill]")];
+  if (!boxes.length) return;
+  const progressEl = document.getElementById("drillProgress");
+  const KEY = "tetradka-drills";
+
+  let done = [];
+  try { done = JSON.parse(localStorage.getItem(KEY)) || []; } catch { /* fresh start */ }
+
+  const render = () => {
+    const count = boxes.filter((b) => b.checked).length;
+    progressEl.textContent = `Изпълнени: ${count} от ${boxes.length}` + (count === boxes.length ? " · отличен 6!" : "");
+  };
+
+  boxes.forEach((box) => {
+    box.checked = done.includes(box.dataset.drill);
+    box.addEventListener("change", () => {
+      const ids = boxes.filter((b) => b.checked).map((b) => b.dataset.drill);
+      try { localStorage.setItem(KEY, JSON.stringify(ids)); } catch { /* private mode */ }
+      render();
+    });
+  });
+  render();
+}
+
 /* hero: the underline draws itself like a chalk stroke,
    pinned items settle in - tells the "writing on the board" story once */
 function initHeroChalk() {
@@ -83,11 +110,17 @@ function initReveals() {
   const groups = [
     ".startlist__item",
     ".notecard",
+    ".sticky",
+    ".assignment",
+    ".drills__level",
+    ".drill",
+    ".glossary__entry",
     ".book",
     ".verdict",
     ".polaroid",
     ".hand-title",
     ".paper__lead",
+    ".cork__lead",
     ".homework-board__title",
     ".homework-board__cta"
   ];

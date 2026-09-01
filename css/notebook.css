@@ -370,6 +370,187 @@ img { max-width: 100%; display: block; }
 .copy-btn:active { transform: scale(0.96); }
 .copy-btn.is-copied { background: var(--accent); color: #fdfbf3; }
 
+/* ============ STICKY NOTES WALL ============ */
+.stickies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(22px, 3.5vw, 40px);
+}
+.sticky {
+  position: relative;
+  padding: 26px 22px 30px;
+  box-shadow: 0 10px 24px rgba(60, 55, 40, 0.16);
+  min-height: 150px;
+}
+.sticky::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.22);
+}
+.sticky:nth-child(odd) { transform: rotate(-1.3deg); }
+.sticky:nth-child(even) { transform: rotate(1.1deg); }
+.sticky:nth-child(3n) { transform: rotate(2deg); }
+.sticky p { margin: 0; font-size: 1.16rem; line-height: 1.45; color: #453f2e; }
+.sticky--yellow { background: #fbf0b8; }
+.sticky--green { background: #d9ecc8; }
+.sticky--blue { background: #cfe3ec; }
+.sticky--pink { background: #f5d9d4; }
+
+/* ============ CORK BOARD: assignments ============ */
+.cork {
+  padding: clamp(64px, 10vh, 110px) var(--pad-x);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.06), transparent 60%),
+    linear-gradient(150deg, #b08a5e 0%, #9c7549 55%, #a87f52 100%);
+  position: relative;
+}
+.cork::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.18;
+  pointer-events: none;
+}
+.cork__inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  position: relative;
+  border: 10px solid #6f5233;
+  border-radius: 4px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.18), 0 12px 34px rgba(0, 0, 0, 0.2);
+  padding: clamp(30px, 5vw, 60px);
+}
+.hand-title--chalkless { color: #2f2416; }
+.hand-title--chalkless::after { background: #f4e9c8; opacity: 0.8; }
+.cork__lead {
+  color: #3d2f1d;
+  font-size: 1.15rem;
+  max-width: 56ch;
+  margin: 0 0 44px;
+}
+.cork__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3.5vw, 42px);
+}
+.assignment {
+  position: relative;
+  background: #fdfaf0;
+  padding: 34px 26px 26px;
+  box-shadow: 0 12px 26px rgba(30, 22, 10, 0.28);
+}
+.assignment:nth-child(odd) { transform: rotate(-1deg); }
+.assignment:nth-child(even) { transform: rotate(1.2deg); }
+.assignment__pin {
+  position: absolute; top: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e07a63, var(--accent) 60%, #7c2e1c);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
+}
+.assignment__level {
+  display: inline-block;
+  font-size: 1rem;
+  color: var(--accent);
+  border-bottom: 2px solid rgba(176, 73, 47, 0.35);
+  margin-bottom: 10px;
+}
+.assignment h3 { font-size: 1.65rem; margin: 0 0 10px; color: var(--ink); }
+.assignment p { margin: 0; color: var(--ink-soft); font-size: 1.02rem; line-height: 1.55; }
+.assignment--blank {
+  background: #fbf0b8;
+  display: flex; align-items: center;
+  transform: rotate(1.8deg);
+}
+.assignment__blank-text { font-size: 1.2rem; color: #4c4632; margin: 0; }
+
+/* ============ DRILLS CHECKLIST ============ */
+.drills { max-width: 700px; }
+.drills__level {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin: 38px 0 12px;
+  transform: rotate(-0.6deg);
+}
+.drills__level:first-child { margin-top: 0; }
+.drill {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.drill input { position: absolute; opacity: 0; pointer-events: none; }
+.drill__box {
+  width: 26px; height: 26px;
+  border: 2.5px solid var(--ink-soft);
+  border-radius: 30% 40% 35% 42% / 40% 32% 44% 36%;
+  margin-top: 2px;
+  position: relative;
+  transition: border-color 0.25s;
+}
+.drill:hover .drill__box { border-color: var(--accent); }
+.drill input:checked + .drill__box::after {
+  content: "✓";
+  position: absolute;
+  left: 2px; top: -8px;
+  font-family: var(--font-chalk);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  transform: rotate(-8deg);
+}
+.drill input:focus-visible + .drill__box { outline: 3px solid rgba(176, 73, 47, 0.5); outline-offset: 3px; }
+.drill__text { font-size: 1.08rem; color: var(--ink-soft); transition: color 0.25s, opacity 0.25s; }
+.drill input:checked ~ .drill__text {
+  color: var(--ink);
+  text-decoration: line-through;
+  text-decoration-color: rgba(176, 73, 47, 0.6);
+  text-decoration-thickness: 2px;
+  opacity: 0.75;
+}
+.drills__progress {
+  margin-top: 34px;
+  font-size: 1.35rem;
+  color: var(--accent);
+  transform: rotate(-1deg);
+}
+
+/* ============ GLOSSARY ============ */
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(10px, 2vw, 18px) clamp(34px, 5vw, 70px);
+  margin: 0;
+}
+.glossary__entry {
+  padding: 18px 0;
+  border-bottom: 2px dotted rgba(43, 50, 64, 0.2);
+}
+.glossary__entry dt {
+  font-family: var(--font-book);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.glossary__entry dt::before {
+  content: "◆ ";
+  color: var(--accent);
+  font-size: 0.7em;
+  vertical-align: 2px;
+}
+.glossary__entry dd {
+  margin: 0;
+  font-family: var(--font-book);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
 /* ============ BOOK SPREAD ============ */
 .book {
   display: grid;
@@ -516,6 +697,9 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 900px) {
   .tnav__links { display: none; }
+  .stickies { grid-template-columns: repeat(2, 1fr); }
+  .cork__grid { grid-template-columns: 1fr; }
+  .glossary { grid-template-columns: 1fr; }
   .hero-board__pins {
     position: static;
     flex-direction: row;
@@ -533,6 +717,8 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 520px) {
   body { font-size: 17px; }
+  .stickies { grid-template-columns: 1fr; }
+  .sticky { min-height: 0; }
   .board__frame { border-width: 8px; padding-left: 18px; padding-right: 18px; }
   .homework-board__cta { flex-direction: column; align-items: stretch; }
   .polaroid--low { margin-top: 0; }
