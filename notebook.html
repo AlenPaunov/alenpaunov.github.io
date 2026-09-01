@@ -24,10 +24,10 @@
     <a class="tnav__logo" href="index.html">AP<span>_</span></a>
     <nav class="tnav__links" aria-label="Основна навигация">
       <a href="#start">Началото</a>
+      <a href="#lessons">Уроците</a>
       <a href="#prompts">Промптовете</a>
       <a href="#projects">Проектите</a>
       <a href="#practice">Задачите</a>
-      <a href="#watch">Гледай</a>
     </nav>
     <a class="tnav__back" href="index.html">← към сайта</a>
   </header>
@@ -99,6 +99,155 @@
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ===== УРОЦИТЕ: учебната програма ===== -->
+    <section class="paper paper--plain" id="lessons">
+      <div class="paper__inner">
+        <h2 class="hand-title">Учебната програма</h2>
+        <p class="paper__lead">Шест кратки урока, по пет минути всеки. Отваряй ги по ред или скачай направо към това, което те човърка. Тетрадката отмята прочетеното.</p>
+
+        <ol class="lessonmap" id="lessonMap">
+          <li><button type="button" data-lesson="l1"><span class="lessonmap__num mono">Урок 01</span><span class="lessonmap__title">Разходка из екрана</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+          <li><button type="button" data-lesson="l2"><span class="lessonmap__num mono">Урок 02</span><span class="lessonmap__title">Как помни и защо забравя</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+          <li><button type="button" data-lesson="l3"><span class="lessonmap__num mono">Урок 03</span><span class="lessonmap__title">Персоните: превърни го в когото ти трябва</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+          <li><button type="button" data-lesson="l4"><span class="lessonmap__num mono">Урок 04</span><span class="lessonmap__title">MCP: контактите на AI</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+          <li><button type="button" data-lesson="l5"><span class="lessonmap__num mono">Урок 05</span><span class="lessonmap__title">Агентите: когато AI върши, а не само говори</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+          <li><button type="button" data-lesson="l6"><span class="lessonmap__num mono">Урок 06</span><span class="lessonmap__title">Кой инструмент за какво</span><span class="lessonmap__check hand" aria-hidden="true">✓</span></button></li>
+        </ol>
+
+        <div class="lessons">
+
+          <article class="lesson" id="lesson-l1" data-lesson-body="l1">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 01</span>
+              <h3 class="lesson__title hand">Разходка из екрана</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>Отвори Claude или ChatGPT и виж: екранът е по-прост, отколкото изглежда. В средата е <strong>полето за писане</strong>. Там става всичко. До него има <strong>кламерче</strong>: с него прикачаш файлове, снимки и документи, и това е половината сила на инструмента.</p>
+                <p>Вляво е <strong>историята</strong>: всеки разговор се пази и можеш да се върнеш към него утре или след месец. Горе има <strong>избор на модел</strong>: „по-бърз" срещу „по-умен". За начало не му мисли, стандартният е добър. Бутонът <strong>нов чат</strong> е най-подценяваният на екрана: нова тема, нов чат.</p>
+                <p>И понеже ще попиташ: нищо не можеш да счупиш. Най-лошото, което може да стане, е слаб отговор.</p>
+                <p class="lesson__carry hand">Запиши си: кламерчето и „нов чат" са двата бутона, които правят разликата между турист и местен.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>Прикачи каквато и да е снимка на документ и напиши: „Какво е това и има ли нещо, на което да обърна внимание?"</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson" id="lesson-l2" data-lesson-body="l2">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 02</span>
+              <h3 class="lesson__title hand">Как помни и защо забравя</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>В рамките на един разговор AI помни всичко казано дотук: това е <strong>контекстът</strong>. Затова можеш да кажеш „направи го по-кратко" и той знае кое „то". Но контекстът има таван. В много дълъг разговор началото започва да се губи, като тетрадка, на която виждаш само последните страници.</p>
+                <p>Между разговорите е друго. По подразбиране новият чат започва от нула. Инструментите обаче имат и <strong>дългосрочна памет</strong>: ChatGPT си записва факти за теб от разговорите, Claude има настройки и Projects, в които слагаш постоянна информация. Там пишеш веднъж „работя като счетоводител, пиши ми кратко и на ти" и всеки разговор почва с това наум.</p>
+                <p class="lesson__carry hand">Запиши си: дълъг разговор, който започва да се обърква, не се поправя. Взимаш същината и я пренасяш в нов чат.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>В края на дълъг разговор напиши: „Обобщи какво решихме дотук в 5 точки, ще продължа в нов чат." Копирай ги в новия.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson" id="lesson-l3" data-lesson-body="l3">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 03</span>
+              <h3 class="lesson__title hand">Персоните: превърни го в когото ти трябва</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>Едно изречение сменя целия разговор: <strong>„Ти си..."</strong>. Кажи „Ти си опитен юрист по трудово право" и отговорите стават по-точни, с правилните въпроси към теб. Кажи „Ти си строг редактор" и той спира да те хвали и почва да реже.</p>
+                <p>Персоната не е театър, а <strong>настройка на гледната точка</strong>: какво да гледа, какъв език да ползва, за какво да внимава. Работещи персони: строгият редактор, търпеливият учител, скептичният инвеститор, преговарящият насреща (да тренираш тежък разговор), клиентът, който нищо не разбира (да провериш дали обяснението ти е ясно).</p>
+                <p>А ако някоя персона ти трябва всеки ден, запиши я в custom instructions или в Project, и той е такъв постоянно.</p>
+                <p class="lesson__carry hand">Запиши си: най-полезната персона не е тази, която ти помага, а тази, която ти опонира.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>„Ти си скептичен клиент с ограничен бюджет. Ето моята оферта: [постави я]. Задай ми петте въпроса, от които се страхувам."</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson" id="lesson-l4" data-lesson-body="l4">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 04</span>
+              <h3 class="lesson__title hand">MCP: контактите на AI</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>Сам по себе си чатът е затворен в стаята си: знае много, но не вижда твоя календар, поща и файлове. <strong>MCP (Model Context Protocol)</strong> е стандартът, който решава това. Мисли за него като за <strong>контакт в стената</strong>: единен накрайник, в който можеш да „включиш" AI към твоите инструменти.</p>
+                <p>Всяка връзка е <strong>MCP сървър</strong>: една за календара, една за пощата, една за фирмената база. Включиш ли ги, вместо „напиши ми имейл" казваш „виж кога съм свободен другата седмица и предложи час на Мария по имейл", и то се случва. Ти решаваш кое да включиш и какво има право да прави всяка връзка.</p>
+                <p>Защо е важно: преди MCP всяка компания правеше собствени, несъвместими връзки. Сега стандартът е един, приет от Anthropic, OpenAI, Google и почти всички. Затова връзките се множат бързо.</p>
+                <p class="lesson__carry hand">Запиши си: MCP не прави AI по-умен, а по-ръкат. Умът си го има, трябваха му ръце.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>Виж в настройките на Claude раздела Connectors: там се включват готови MCP връзки с два клика, без нищо техническо.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson" id="lesson-l5" data-lesson-body="l5">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 05</span>
+              <h3 class="lesson__title hand">Агентите: когато AI върши, а не само говори</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>Чатът <strong>отговаря</strong>. Агентът <strong>върши</strong>. Разликата е в цикъла, който агентът върти сам:</p>
+                <p class="lesson__loop hand">цел → план → действие → проверка → пак, докато стане</p>
+                <p>Даваш му цел („намери ми трите най-добри оферти за тази застраховка и ги сравни в таблица") и той сам решава какви стъпки трябват: търси, чете, сравнява, засича грешките си и се поправя. Точно това значи модерната дума <strong>„agentic"</strong>: не еднократен отговор, а самостоятелна работа на стъпки към целта.</p>
+                <p>Вече ги ползваш, дори без да знаеш: дълбокото проучване (Deep Research) в Claude и ChatGPT е агент, Claude Code е агент, който пише и поправя код с часове. Правилото за доверие е просто: колкото по-важен е резултатът, толкова по-внимателно преглеждаш какво е свършил. Агентът е стажант с невероятна скорост, не съдружник с подпис.</p>
+                <p class="lesson__carry hand">Запиши си: на чата даваш въпроси, на агента даваш цели. И винаги проверяваш преди подпис.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>Пусни Research режим с: „Проучи [тема, която те вълнува] и ми напиши доклад с източници." Гледай как работи на стъпки.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson" id="lesson-l6" data-lesson-body="l6">
+            <button class="lesson__head" type="button" aria-expanded="false">
+              <span class="lesson__num mono">Урок 06</span>
+              <h3 class="lesson__title hand">Кой инструмент за какво</h3>
+              <span class="lesson__toggle hand" aria-hidden="true">+</span>
+            </button>
+            <div class="lesson__body">
+              <div class="lesson__content">
+                <p>Кратката карта на екосистемата, без излишните 40 инструмента от списъците в LinkedIn:</p>
+                <ul class="lesson__tools">
+                  <li><strong>Claude</strong> · дълги документи, писане, което звучи човешки, и строене на работещи неща с Artifacts.</li>
+                  <li><strong>ChatGPT</strong> · най-широкият многобоец: изображения, гласов разговор, памет, огромна общност.</li>
+                  <li><strong>Gemini</strong> · ако животът ти е в Google: Gmail, Docs, Drive, YouTube.</li>
+                  <li><strong>Perplexity</strong> · търсачка с отговори и източници, замества „ровенето из 10 таба".</li>
+                  <li><strong>NotebookLM</strong> · качваш свои материали, той отговаря само от тях. Учене и справочници.</li>
+                  <li><strong>Claude Code / Cursor</strong> · агенти за код. Там се случва „направих си приложение за уикенда".</li>
+                  <li><strong>Midjourney / DALL·E</strong> · изображения от текст, от лого скици до илюстрации.</li>
+                  <li><strong>ElevenLabs</strong> · глас: озвучаване, дублаж, аудио версии на текстове.</li>
+                </ul>
+                <p class="lesson__carry hand">Запиши си: не ти трябват осем инструмента. Един основен чат, научен добре, бие осем инсталирани и забравени.</p>
+                <div class="lesson__try">
+                  <p class="lesson__try-label hand">Пробвай сега:</p>
+                  <p>Избери от картата един инструмент, който не познаваш, и му дай същата задача, която днес си дал на основния си чат. Сравни.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 

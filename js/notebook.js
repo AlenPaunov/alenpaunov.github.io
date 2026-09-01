@@ -9,6 +9,7 @@ const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 document.addEventListener("DOMContentLoaded", () => {
   initCopyButtons();
   initDrills();
+  initLessons();
 
   if (reduced || typeof gsap === "undefined") {
     document.querySelectorAll(".t-reveal").forEach((el) => {
@@ -51,6 +52,49 @@ function initCopyButtons() {
           }
         } catch { /* text stays selected for manual copy */ }
       }
+    });
+  });
+}
+
+/* lessons: accordion + map jumps; opened lessons get a ✓ in the map */
+function initLessons() {
+  const lessons = [...document.querySelectorAll(".lesson")];
+  if (!lessons.length) return;
+  const mapItems = new Map(
+    [...document.querySelectorAll("#lessonMap [data-lesson]")].map((btn) => [btn.dataset.lesson, btn.closest("li")])
+  );
+  const KEY = "tetradka-lessons";
+
+  let read = [];
+  try { read = JSON.parse(localStorage.getItem(KEY)) || []; } catch { /* fresh notebook */ }
+  read.forEach((id) => mapItems.get(id)?.classList.add("is-read"));
+
+  const markRead = (id) => {
+    if (read.includes(id)) return;
+    read.push(id);
+    mapItems.get(id)?.classList.add("is-read");
+    try { localStorage.setItem(KEY, JSON.stringify(read)); } catch { /* private mode */ }
+  };
+
+  const toggle = (lesson, open) => {
+    const willOpen = open ?? !lesson.classList.contains("is-open");
+    // one open lesson at a time keeps the notebook tidy
+    lessons.forEach((l) => {
+      l.classList.toggle("is-open", l === lesson && willOpen);
+      l.querySelector(".lesson__head").setAttribute("aria-expanded", String(l === lesson && willOpen));
+    });
+    if (willOpen) markRead(lesson.dataset.lessonBody);
+  };
+
+  lessons.forEach((lesson) => {
+    lesson.querySelector(".lesson__head").addEventListener("click", () => toggle(lesson));
+  });
+
+  document.querySelectorAll("#lessonMap [data-lesson]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lesson = document.getElementById("lesson-" + btn.dataset.lesson);
+      toggle(lesson, true);
+      lesson.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
     });
   });
 }
@@ -109,6 +153,8 @@ function initHeroChalk() {
 function initReveals() {
   const groups = [
     ".startlist__item",
+    ".lessonmap",
+    ".lesson",
     ".notecard",
     ".sticky",
     ".assignment",
