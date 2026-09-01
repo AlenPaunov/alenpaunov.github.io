@@ -22,7 +22,34 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
   initHeroChalk();
   initReveals();
+  initDoodleDraw();
 });
+
+/* doodles draw themselves in, stroke by stroke, as they scroll into view */
+function initDoodleDraw() {
+  document.querySelectorAll(".doodle").forEach((doodle) => {
+    const paths = [...doodle.querySelectorAll("path.d")].filter(
+      (p) => !p.hasAttribute("stroke-dasharray")
+    );
+    if (!paths.length) return;
+    paths.forEach((p) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+    });
+    gsap.to(paths, {
+      strokeDashoffset: 0,
+      duration: 1.1,
+      ease: "power2.inOut",
+      stagger: 0.08,
+      scrollTrigger: { trigger: doodle, start: "top 92%", once: true },
+      onComplete() {
+        // let CSS hover transitions own the strokes afterwards
+        paths.forEach((p) => { p.style.strokeDasharray = ""; p.style.strokeDashoffset = ""; });
+      }
+    });
+  });
+}
 
 /* copy prompt to clipboard; the notecard's <pre> holds the text */
 function initCopyButtons() {

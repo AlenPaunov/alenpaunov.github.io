@@ -370,6 +370,134 @@ img { max-width: 100%; display: block; }
 .copy-btn:active { transform: scale(0.96); }
 .copy-btn.is-copied { background: var(--accent); color: #fdfbf3; }
 
+/* ============ DOODLES: hand-drawn margin illustrations ============ */
+.doodle {
+  display: block;
+  color: var(--ink);
+  opacity: 0.85;
+}
+.doodle svg { width: 100%; height: auto; display: block; overflow: visible; }
+.doodle g, .doodle path { transform-box: fill-box; }
+
+/* margin doodles sit in the notebook margin next to section titles */
+.doodle--plane, .doodle--bulb, .doodle--pencil, .doodle--quill,
+.doodle--coffee, .doodle--cap, .doodle--scale, .doodle--lens {
+  position: absolute;
+  right: clamp(-10px, 1vw, 30px);
+  top: -18px;
+  width: clamp(110px, 12vw, 150px);
+  pointer-events: auto;
+}
+.doodle--bulb { width: clamp(80px, 9vw, 104px); top: -34px; }
+.doodle--coffee { color: #2f2416; width: clamp(96px, 10vw, 120px); top: 6px; right: clamp(8px, 2vw, 26px); }
+.doodle--plane { transform: rotate(-4deg); }
+
+/* inline doodles float inside lesson content */
+.doodle--inline {
+  float: right;
+  width: clamp(140px, 20vw, 190px);
+  margin: 4px 0 10px 22px;
+  shape-outside: margin-box;
+}
+
+/* --- interactions (each one tells the lesson's story) --- */
+
+/* bulb: lights up when you hover the curriculum */
+.bulb-rays { opacity: 0; transition: opacity 0.35s; }
+.bulb-glass { transition: fill 0.35s; fill: transparent; }
+.doodle--bulb:hover .bulb-rays { opacity: 1; }
+.doodle--bulb:hover .bulb-glass { fill: rgba(240, 205, 90, 0.4); }
+
+/* plane: takes off toward its dotted path */
+.doodle--plane { transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.doodle--plane:hover { transform: rotate(-7deg) translate(10px, -8px); }
+
+/* chat UI: the input caret blinks like a real one */
+.cursor-blink { animation: caret 1.1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+
+/* memory sheets: the front page slides, the dashed one fades further */
+.mem-front, .mem-back { transition: transform 0.45s, opacity 0.45s; }
+.doodle--memory:hover .mem-front { transform: translate(7px, -5px) rotate(1.5deg); }
+.doodle--memory:hover .mem-back { opacity: 0.5; transform: translate(-4px, 3px); }
+
+/* masks: they lean toward each other, trading moods */
+.mask { transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.doodle--masks:hover .mask--happy { transform: rotate(-8deg) translateY(-4px); }
+.doodle--masks:hover .mask--serious { transform: rotate(8deg) translateY(4px); }
+
+/* MCP: hover plugs the plug into the socket, then a spark */
+.plug { transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1); }
+.spark { opacity: 0; transition: opacity 0.2s 0.4s; }
+.doodle--mcp:hover .plug { transform: translateX(26px); }
+.doodle--mcp:hover .spark { opacity: 1; }
+
+/* agent: the loop arrow makes a full lap around the robot */
+.agent-loop { transform-origin: 50% 50%; }
+.doodle--agent:hover .agent-loop { animation: agent-lap 1.3s cubic-bezier(0.65, 0, 0.35, 1); }
+@keyframes agent-lap { to { transform: rotate(360deg); } }
+
+/* toolbox: tools hop out one after another */
+.tool { transition: transform 0.35s cubic-bezier(0.34, 1.6, 0.64, 1); }
+.doodle--toolbox:hover .tool--pencil { transform: translateY(-7px); }
+.doodle--toolbox:hover .tool--screwdriver { transform: translateY(-10px); transition-delay: 0.07s; }
+.doodle--toolbox:hover .tool--brush { transform: translateY(-6px); transition-delay: 0.14s; }
+
+/* pencil: scribbles one more wave */
+.pencil-body { transition: transform 0.4s; }
+.doodle--pencil:hover .pencil-body { transform: translate(-6px, 6px) rotate(-2deg); }
+
+/* quill: a happy wiggle */
+.doodle--quill { transition: transform 0.4s; }
+.doodle--quill:hover { transform: rotate(-6deg); }
+
+/* coffee: steam rises on its own, saturday morning pace */
+.steam { animation: steam-rise 2.6s ease-in-out infinite; }
+.steam--late { animation-delay: 1.3s; }
+@keyframes steam-rise {
+  0% { opacity: 0; transform: translateY(4px); }
+  35% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-7px); }
+}
+
+/* graduation cap: the tassel swings */
+.tassel { transform-origin: top center; }
+.doodle--cap:hover .tassel { animation: tassel-swing 0.9s ease-in-out; }
+@keyframes tassel-swing {
+  25% { transform: rotate(14deg); }
+  60% { transform: rotate(-9deg); }
+  100% { transform: rotate(0); }
+}
+
+/* scale: weighs the two sides */
+.beam { transform-origin: 50% 20%; }
+.doodle--scale:hover .beam { animation: beam-weigh 1.1s ease-in-out; }
+@keyframes beam-weigh {
+  30% { transform: rotate(4deg); }
+  70% { transform: rotate(-3deg); }
+  100% { transform: rotate(0); }
+}
+
+/* magnifier: sweeps across the dictionary page */
+.lens { transition: transform 0.5s ease-in-out; }
+.doodle--lens:hover .lens { transform: translate(-34px, 6px); }
+
+@media (max-width: 1100px) {
+  .doodle--plane, .doodle--bulb, .doodle--pencil, .doodle--quill,
+  .doodle--coffee, .doodle--cap, .doodle--scale, .doodle--lens {
+    position: static;
+    width: 92px;
+    margin-bottom: 6px;
+  }
+}
+@media (max-width: 520px) {
+  .doodle--inline { width: 128px; margin-left: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink, .steam { animation: none; }
+  .steam { opacity: 0.6; }
+}
+
 /* ============ LESSONS: curriculum map + accordion ============ */
 .lessonmap {
   list-style: none;
