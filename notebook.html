@@ -145,25 +145,51 @@
             </button>
             <div class="lesson__body">
               <div class="lesson__content">
-                <span class="doodle doodle--inline doodle--chatui" aria-hidden="true">
-                  <svg viewBox="0 0 180 130" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <path class="d" d="M14 12 C70 8 120 9 166 12 C169 45 168 85 166 118 C110 122 62 121 14 118 C11 82 12 46 14 12 Z" />
-                    <path class="d" d="M14 30 C70 27 120 27 166 30" />
-                    <path class="d" d="M22 21 a3 3 0 1 0 0.1 0 M34 21 a3 3 0 1 0 0.1 0" stroke-width="2" />
-                    <path class="d" d="M26 48 C56 46 70 47 88 48 C90 55 89 60 88 66 C64 68 46 67 26 66 C25 60 25 54 26 48 Z" stroke-width="2" />
-                    <path class="d" d="M34 57 L78 57" stroke-width="2" opacity="0.5" />
-                    <path class="d" d="M22 96 C70 93 120 93 158 96 C160 101 159 106 158 110 C110 113 64 112 22 110 C21 105 21 100 22 96 Z" />
-                    <path class="cursor-blink" d="M32 100 L32 107" stroke-width="2.4" />
-                    <path class="d" d="M146 99 c0 -5 7 -5 7 0 l0 8 c0 3 -5 3 -5 0 l0 -7" stroke-width="2" />
-                  </svg>
-                </span>
-                <p>Отвори Claude или ChatGPT и виж: екранът е по-прост, отколкото изглежда. В средата е <strong>полето за писане</strong>. Там става всичко. До него има <strong>кламерче</strong>: с него прикачаш файлове, снимки и документи, и това е половината сила на инструмента.</p>
-                <p>Вляво е <strong>историята</strong>: всеки разговор се пази и можеш да се върнеш към него утре или след месец. Горе има <strong>избор на модел</strong>: „по-бърз" срещу „по-умен". За начало не му мисли, стандартният е добър. Бутонът <strong>нов чат</strong> е най-подценяваният на екрана: нова тема, нов чат.</p>
-                <p>И понеже ще попиташ: нищо не можеш да счупиш. Най-лошото, което може да стане, е слаб отговор.</p>
-                <p class="lesson__carry hand">Запиши си: кламерчето и „нов чат" са двата бутона, които правят разликата между турист и местен.</p>
-                <div class="lesson__try">
-                  <p class="lesson__try-label hand">Пробвай сега:</p>
-                  <p>Прикачи каквато и да е снимка на документ и напиши: „Какво е това и има ли нещо, на което да обърна внимание?"</p>
+                <div class="lesson__grid">
+                  <div class="lesson__text">
+                    <p>Отвори Claude или ChatGPT и виж: екранът е по-прост, отколкото изглежда. Разгледай скицата: <strong>цъкни върху червените точки</strong>, всяка ти показва какво прави съответната част.</p>
+                    <p>И понеже ще попиташ: нищо не можеш да счупиш. Най-лошото, което може да стане, е слаб отговор.</p>
+                    <p class="lesson__carry hand">Запиши си: кламерчето и „нов чат" са двата бутона, които правят разликата между турист и местен.</p>
+                    <div class="lesson__try">
+                      <p class="lesson__try-label hand">Пробвай сега:</p>
+                      <p>Прикачи каквато и да е снимка на документ и напиши: „Какво е това и има ли нещо, на което да обърна внимание?"</p>
+                    </div>
+                  </div>
+                  <div class="lesson__visual">
+                    <div class="widget chatx" id="chatxWidget">
+                      <span class="widget__tape" aria-hidden="true"></span>
+                      <div class="chatx__frame">
+                        <aside class="chatx__side">
+                          <button class="chatx__newchat" type="button" data-spot="4">+ нов чат</button>
+                          <div class="chatx__historylist" data-spot-zone="5">
+                            <span>Имейл до Мария</span>
+                            <span>План за урока</span>
+                            <span>Меню за седмицата</span>
+                          </div>
+                        </aside>
+                        <div class="chatx__main">
+                          <div class="chatx__topbar">
+                            <span class="chatx__model" data-spot-zone="3">Модел: умният ▾</span>
+                          </div>
+                          <div class="chatx__messages">
+                            <p class="chatx__msg chatx__msg--user">Обобщи ми този договор.</p>
+                            <p class="chatx__msg chatx__msg--ai">Готово. Три неща заслужават внимание...</p>
+                          </div>
+                          <div class="chatx__inputrow">
+                            <span class="chatx__clip" data-spot-zone="2">📎</span>
+                            <span class="chatx__input" data-spot-zone="1">напиши тук<i class="chatx__caret"></i></span>
+                            <span class="chatx__send">➤</span>
+                          </div>
+                        </div>
+                        <button class="chatx__spot" style="--x: 62%; --y: 84%" data-spot="1" type="button" aria-label="Полето за писане">1</button>
+                        <button class="chatx__spot" style="--x: 33%; --y: 84%" data-spot="2" type="button" aria-label="Прикачане">2</button>
+                        <button class="chatx__spot" style="--x: 55%; --y: 12%" data-spot="3" type="button" aria-label="Избор на модел">3</button>
+                        <button class="chatx__spot" style="--x: 14%; --y: 12%" data-spot="4" type="button" aria-label="Нов чат">4</button>
+                        <button class="chatx__spot" style="--x: 14%; --y: 52%" data-spot="5" type="button" aria-label="История">5</button>
+                      </div>
+                      <p class="chatx__note hand" id="chatxNote">← цъкни точка, за да видиш какво е</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -177,26 +203,35 @@
             </button>
             <div class="lesson__body">
               <div class="lesson__content">
-                <span class="doodle doodle--inline doodle--memory" aria-hidden="true">
-                  <svg viewBox="0 0 160 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <g class="mem-back">
-                      <path class="d" d="M52 14 C82 11 104 12 126 14 C128 40 127 62 126 84 C100 87 76 86 52 84 C50 60 50 38 52 14 Z" stroke-dasharray="6 6" opacity="0.45" />
-                    </g>
-                    <g class="mem-mid">
-                      <path class="d" d="M40 26 C70 23 92 24 114 26 C116 52 115 74 114 96 C88 99 64 98 40 96 C38 72 38 50 40 26 Z" opacity="0.7" />
-                    </g>
-                    <g class="mem-front">
-                      <path class="d" d="M28 38 C58 35 80 36 102 38 C104 64 103 86 102 108 C76 111 52 110 28 108 C26 84 26 62 28 38 Z" fill="#fdfbf3" />
-                      <path class="d" d="M38 54 L92 54 M38 66 L92 66 M38 78 L74 78" stroke-width="2" opacity="0.6" />
-                    </g>
-                  </svg>
-                </span>
-                <p>В рамките на един разговор AI помни всичко казано дотук: това е <strong>контекстът</strong>. Затова можеш да кажеш „направи го по-кратко" и той знае кое „то". Но контекстът има таван. В много дълъг разговор началото започва да се губи, като тетрадка, на която виждаш само последните страници.</p>
-                <p>Между разговорите е друго. По подразбиране новият чат започва от нула. Инструментите обаче имат и <strong>дългосрочна памет</strong>: ChatGPT си записва факти за теб от разговорите, Claude има настройки и Projects, в които слагаш постоянна информация. Там пишеш веднъж „работя като счетоводител, пиши ми кратко и на ти" и всеки разговор почва с това наум.</p>
-                <p class="lesson__carry hand">Запиши си: дълъг разговор, който започва да се обърква, не се поправя. Взимаш същината и я пренасяш в нов чат.</p>
-                <div class="lesson__try">
-                  <p class="lesson__try-label hand">Пробвай сега:</p>
-                  <p>В края на дълъг разговор напиши: „Обобщи какво решихме дотук в 5 точки, ще продължа в нов чат." Копирай ги в новия.</p>
+                <div class="lesson__grid">
+                  <div class="lesson__text">
+                    <p>В рамките на един разговор AI помни всичко казано дотук: това е <strong>контекстът</strong>. Затова можеш да кажеш „направи го по-кратко" и той знае кое „то". Но контекстът има таван. <strong>Дръпни плъзгача</strong> и гледай какво става с началото на разговора, когато той стане много дълъг.</p>
+                    <p>Между разговорите е друго. По подразбиране новият чат започва от нула. Инструментите обаче имат и <strong>дългосрочна памет</strong>: ChatGPT си записва факти за теб, Claude има настройки и Projects с постоянна информация. Пишеш веднъж „работя като счетоводител, пиши ми кратко и на ти" и всеки разговор почва с това наум.</p>
+                    <p class="lesson__carry hand">Запиши си: дълъг разговор, който започва да се обърква, не се поправя. Взимаш същината и я пренасяш в нов чат.</p>
+                    <div class="lesson__try">
+                      <p class="lesson__try-label hand">Пробвай сега:</p>
+                      <p>В края на дълъг разговор напиши: „Обобщи какво решихме дотук в 5 точки, ще продължа в нов чат." Копирай ги в новия.</p>
+                    </div>
+                  </div>
+                  <div class="lesson__visual">
+                    <div class="widget ctxsim" id="ctxWidget">
+                      <span class="widget__tape" aria-hidden="true"></span>
+                      <p class="widget__title hand">Какво вижда моделът</p>
+                      <div class="ctxsim__messages">
+                        <p class="ctxsim__msg" data-age="5">Здравей! Помогни ми с оферта.</p>
+                        <p class="ctxsim__msg" data-age="4">Ето детайлите за клиента...</p>
+                        <p class="ctxsim__msg" data-age="3">Добави отстъпка 10%.</p>
+                        <p class="ctxsim__msg" data-age="2">Всъщност махни отстъпката.</p>
+                        <p class="ctxsim__msg" data-age="1">Преведи я на английски.</p>
+                        <p class="ctxsim__msg" data-age="0">Направи я по-кратка.</p>
+                      </div>
+                      <label class="ctxsim__control">
+                        <span class="hand">разговорът расте →</span>
+                        <input type="range" id="ctxSlider" min="0" max="100" value="0" />
+                      </label>
+                      <p class="ctxsim__note hand" id="ctxNote">Кратък разговор: моделът вижда всичко.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -210,28 +245,28 @@
             </button>
             <div class="lesson__body">
               <div class="lesson__content">
-                <span class="doodle doodle--inline doodle--masks" aria-hidden="true">
-                  <svg viewBox="0 0 170 110" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <g class="mask mask--happy">
-                      <path class="d" d="M28 18 C52 12 66 20 68 40 C70 62 60 82 44 86 C28 82 18 62 20 40 C21 27 24 20 28 18 Z" />
-                      <path class="d" d="M32 42 L40 42 M50 42 L58 42" stroke-width="2.4" />
-                      <path class="d" d="M32 60 C38 68 50 68 56 60" />
-                    </g>
-                    <g class="mask mask--serious">
-                      <path class="d" d="M108 24 C132 18 146 26 148 46 C150 68 140 88 124 92 C108 88 98 68 100 46 C101 33 104 26 108 24 Z" />
-                      <path class="d" d="M112 48 L120 48 M130 48 L138 48" stroke-width="2.4" />
-                      <path class="d" d="M112 72 C118 66 130 66 136 72" />
-                    </g>
-                    <path class="d dash" d="M74 50 C84 44 92 44 94 50" stroke-dasharray="4 6" stroke-width="2" opacity="0.5" />
-                  </svg>
-                </span>
-                <p>Едно изречение сменя целия разговор: <strong>„Ти си..."</strong>. Кажи „Ти си опитен юрист по трудово право" и отговорите стават по-точни, с правилните въпроси към теб. Кажи „Ти си строг редактор" и той спира да те хвали и почва да реже.</p>
-                <p>Персоната не е театър, а <strong>настройка на гледната точка</strong>: какво да гледа, какъв език да ползва, за какво да внимава. Работещи персони: строгият редактор, търпеливият учител, скептичният инвеститор, преговарящият насреща (да тренираш тежък разговор), клиентът, който нищо не разбира (да провериш дали обяснението ти е ясно).</p>
-                <p>А ако някоя персона ти трябва всеки ден, запиши я в custom instructions или в Project, и той е такъв постоянно.</p>
-                <p class="lesson__carry hand">Запиши си: най-полезната персона не е тази, която ти помага, а тази, която ти опонира.</p>
-                <div class="lesson__try">
-                  <p class="lesson__try-label hand">Пробвай сега:</p>
-                  <p>„Ти си скептичен клиент с ограничен бюджет. Ето моята оферта: [постави я]. Задай ми петте въпроса, от които се страхувам."</p>
+                <div class="lesson__grid">
+                  <div class="lesson__text">
+                    <p>Едно изречение сменя целия разговор: <strong>„Ти си..."</strong>. Кажи „Ти си опитен юрист" и отговорите стават по-точни, с правилните въпроси към теб. <strong>Пробвай в симулатора</strong>: същият въпрос, три персони, три различни отговора.</p>
+                    <p>Персоната не е театър, а <strong>настройка на гледната точка</strong>: какво да гледа, какъв език да ползва, за какво да внимава. А ако някоя ти трябва всеки ден, запиши я в custom instructions или в Project, и той е такъв постоянно.</p>
+                    <p class="lesson__carry hand">Запиши си: най-полезната персона не е тази, която ти помага, а тази, която ти опонира.</p>
+                    <div class="lesson__try">
+                      <p class="lesson__try-label hand">Пробвай сега:</p>
+                      <p>„Ти си скептичен клиент с ограничен бюджет. Ето моята оферта: [постави я]. Задай ми петте въпроса, от които се страхувам."</p>
+                    </div>
+                  </div>
+                  <div class="lesson__visual">
+                    <div class="widget personax" id="personaWidget">
+                      <span class="widget__tape" aria-hidden="true"></span>
+                      <p class="widget__title hand">Аз: „Ето плана ми да отворя сладкарница."</p>
+                      <div class="personax__pills">
+                        <button type="button" class="personax__pill is-active" data-persona="editor">строг редактор</button>
+                        <button type="button" class="personax__pill" data-persona="teacher">търпелив учител</button>
+                        <button type="button" class="personax__pill" data-persona="investor">скептичен инвеститор</button>
+                      </div>
+                      <p class="personax__answer" id="personaAnswer">Планът е с 40% по-дълъг от нужното. Точки 3 и 5 казват едно и също. Режа ги, ето стегнатата версия.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,30 +280,40 @@
             </button>
             <div class="lesson__body">
               <div class="lesson__content">
-                <span class="doodle doodle--inline doodle--mcp" aria-hidden="true" title="посочи ме">
-                  <svg viewBox="0 0 190 110" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                    <g class="plug">
-                      <path class="d" d="M12 62 C20 50 24 44 34 42 C44 40 52 44 56 52 C60 60 58 68 52 74 C44 80 34 80 26 76" transform="translate(0 -8)" />
-                      <path class="d" d="M56 48 C62 46 68 46 74 48 C76 54 76 60 74 66 C68 68 62 68 56 66" />
-                      <path class="d" d="M74 52 L88 52 M74 62 L88 62" stroke-width="3" />
-                    </g>
-                    <g class="socket">
-                      <path class="d" d="M120 30 C140 27 156 28 172 30 C174 48 174 66 172 84 C154 87 138 86 120 84 C118 66 118 48 120 30 Z" />
-                      <path class="d" d="M146 44 a13 13 0 1 0 0.1 0" />
-                      <path class="d" d="M141 55 l6 0 M147 63 l6 0" stroke-width="3" />
-                    </g>
-                    <g class="spark">
-                      <path d="M112 20 l4 -8 M124 16 l1 -9" stroke-width="2.4" />
-                    </g>
-                  </svg>
-                </span>
-                <p>Сам по себе си чатът е затворен в стаята си: знае много, но не вижда твоя календар, поща и файлове. <strong>MCP (Model Context Protocol)</strong> е стандартът, който решава това. Мисли за него като за <strong>контакт в стената</strong>: единен накрайник, в който можеш да „включиш" AI към твоите инструменти.</p>
-                <p>Всяка връзка е <strong>MCP сървър</strong>: една за календара, една за пощата, една за фирмената база. Включиш ли ги, вместо „напиши ми имейл" казваш „виж кога съм свободен другата седмица и предложи час на Мария по имейл", и то се случва. Ти решаваш кое да включиш и какво има право да прави всяка връзка.</p>
-                <p>Защо е важно: преди MCP всяка компания правеше собствени, несъвместими връзки. Сега стандартът е един, приет от Anthropic, OpenAI, Google и почти всички. Затова връзките се множат бързо.</p>
-                <p class="lesson__carry hand">Запиши си: MCP не прави AI по-умен, а по-ръкат. Умът си го има, трябваха му ръце.</p>
-                <div class="lesson__try">
-                  <p class="lesson__try-label hand">Пробвай сега:</p>
-                  <p>Виж в настройките на Claude раздела Connectors: там се включват готови MCP връзки с два клика, без нищо техническо.</p>
+                <div class="lesson__grid">
+                  <div class="lesson__text">
+                    <p>Сам по себе си чатът е затворен в стаята си: знае много, но не вижда твоя календар, поща и файлове. <strong>MCP (Model Context Protocol)</strong> е стандартът, който решава това. Мисли за него като за <strong>контакт в стената</strong>: единен накрайник, в който „включваш" AI към твоите инструменти. <strong>Щракни ключетата</strong> и виж какво става възможно.</p>
+                    <p>Всяка връзка е <strong>MCP сървър</strong>. Ти решаваш кое да включиш и какво има право да прави всяка връзка. А защо е важно: преди MCP всяка компания правеше собствени, несъвместими връзки. Сега стандартът е един, приет от Anthropic, OpenAI, Google и почти всички.</p>
+                    <p class="lesson__carry hand">Запиши си: MCP не прави AI по-умен, а по-ръкат. Умът си го има, трябваха му ръце.</p>
+                    <div class="lesson__try">
+                      <p class="lesson__try-label hand">Пробвай сега:</p>
+                      <p>Виж в настройките на Claude раздела Connectors: там се включват готови MCP връзки с два клика, без нищо техническо.</p>
+                    </div>
+                  </div>
+                  <div class="lesson__visual">
+                    <div class="widget mcpx" id="mcpWidget">
+                      <span class="widget__tape" aria-hidden="true"></span>
+                      <p class="widget__title hand">Включи асистента към живота си</p>
+                      <div class="mcpx__rows">
+                        <label class="mcpx__row">
+                          <span class="mcpx__label">📅 Календар</span>
+                          <span class="mcpx__wire" aria-hidden="true"></span>
+                          <input type="checkbox" data-mcp="cal" /><span class="mcpx__switch" aria-hidden="true"></span>
+                        </label>
+                        <label class="mcpx__row">
+                          <span class="mcpx__label">✉️ Поща</span>
+                          <span class="mcpx__wire" aria-hidden="true"></span>
+                          <input type="checkbox" data-mcp="mail" /><span class="mcpx__switch" aria-hidden="true"></span>
+                        </label>
+                        <label class="mcpx__row">
+                          <span class="mcpx__label">🗂️ Файлове</span>
+                          <span class="mcpx__wire" aria-hidden="true"></span>
+                          <input type="checkbox" data-mcp="files" /><span class="mcpx__switch" aria-hidden="true"></span>
+                        </label>
+                      </div>
+                      <p class="mcpx__result hand" id="mcpResult">Сега може: само да си говорите. Включи нещо!</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -282,28 +327,33 @@
             </button>
             <div class="lesson__body">
               <div class="lesson__content">
-                <span class="doodle doodle--inline doodle--agent" aria-hidden="true">
-                  <svg viewBox="0 0 150 140" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <g class="agent-loop">
-                      <path class="d" d="M75 18 C110 20 132 42 130 72 C128 102 106 122 75 122 C44 122 22 102 20 72 C19 48 32 28 58 20" />
-                      <path class="d" d="M58 20 L48 14 M58 20 L52 30" />
-                    </g>
-                    <g class="agent-bot">
-                      <path class="d" d="M52 52 C68 49 84 49 98 52 C100 66 100 80 98 92 C82 95 68 95 52 92 C50 79 50 65 52 52 Z" fill="#fdfbf3" />
-                      <path class="d" d="M64 66 a2.6 2.6 0 1 0 0.1 0 M86 66 a2.6 2.6 0 1 0 0.1 0" stroke-width="2.4" />
-                      <path class="d" d="M64 80 C70 84 80 84 86 80" />
-                      <path class="d" d="M75 52 L75 42 a4 4 0 1 1 0.1 0" stroke-width="2.2" />
-                    </g>
-                  </svg>
-                </span>
-                <p>Чатът <strong>отговаря</strong>. Агентът <strong>върши</strong>. Разликата е в цикъла, който агентът върти сам:</p>
-                <p class="lesson__loop hand">цел → план → действие → проверка → пак, докато стане</p>
-                <p>Даваш му цел („намери ми трите най-добри оферти за тази застраховка и ги сравни в таблица") и той сам решава какви стъпки трябват: търси, чете, сравнява, засича грешките си и се поправя. Точно това значи модерната дума <strong>„agentic"</strong>: не еднократен отговор, а самостоятелна работа на стъпки към целта.</p>
-                <p>Вече ги ползваш, дори без да знаеш: дълбокото проучване (Deep Research) в Claude и ChatGPT е агент, Claude Code е агент, който пише и поправя код с часове. Правилото за доверие е просто: колкото по-важен е резултатът, толкова по-внимателно преглеждаш какво е свършил. Агентът е стажант с невероятна скорост, не съдружник с подпис.</p>
-                <p class="lesson__carry hand">Запиши си: на чата даваш въпроси, на агента даваш цели. И винаги проверяваш преди подпис.</p>
-                <div class="lesson__try">
-                  <p class="lesson__try-label hand">Пробвай сега:</p>
-                  <p>Пусни Research режим с: „Проучи [тема, която те вълнува] и ми напиши доклад с източници." Гледай как работи на стъпки.</p>
+                <div class="lesson__grid">
+                  <div class="lesson__text">
+                    <p>Чатът <strong>отговаря</strong>. Агентът <strong>върши</strong>. Разликата е в цикъла, който агентът върти сам:</p>
+                    <p class="lesson__loop hand">цел → план → действие → проверка → пак, докато стане</p>
+                    <p>Даваш му цел и той сам решава какви стъпки трябват: търси, чете, сравнява, засича грешките си и се поправя. Това значи модерната дума <strong>„agentic"</strong>. <strong>Дай му задача в симулатора</strong> и го гледай как работи.</p>
+                    <p>Вече ги ползваш, дори без да знаеш: Deep Research в Claude и ChatGPT е агент, Claude Code е агент, който пише код с часове. Правилото за доверие: колкото по-важен е резултатът, толкова по-внимателно преглеждаш. Агентът е стажант с невероятна скорост, не съдружник с подпис.</p>
+                    <p class="lesson__carry hand">Запиши си: на чата даваш въпроси, на агента даваш цели. И винаги проверяваш преди подпис.</p>
+                    <div class="lesson__try">
+                      <p class="lesson__try-label hand">Пробвай сега:</p>
+                      <p>Пусни Research режим с: „Проучи [тема, която те вълнува] и ми напиши доклад с източници." Гледай как работи на стъпки.</p>
+                    </div>
+                  </div>
+                  <div class="lesson__visual">
+                    <div class="widget agentx" id="agentWidget">
+                      <span class="widget__tape" aria-hidden="true"></span>
+                      <p class="widget__title hand">Задача: „Сравни 3 оферти за застраховка"</p>
+                      <button class="agentx__run" id="agentRun" type="button">▶ пусни агента</button>
+                      <ol class="agentx__steps" id="agentSteps">
+                        <li data-step>съставя план на търсенето</li>
+                        <li data-step>намира 14 оферти, отсява 3</li>
+                        <li data-step>чете условията и дребния шрифт</li>
+                        <li data-step>хваща своя грешка в цените, поправя я</li>
+                        <li data-step>подрежда сравнителна таблица</li>
+                      </ol>
+                      <p class="agentx__done hand" id="agentDone">Готово. Таблицата те чака: 3 оферти, 6 критерия. ✓</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

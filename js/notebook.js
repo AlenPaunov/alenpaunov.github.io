@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCopyButtons();
   initDrills();
   initLessons();
+  initLessonWidgets();
 
   if (reduced || typeof gsap === "undefined") {
     document.querySelectorAll(".t-reveal").forEach((el) => {
@@ -80,6 +81,129 @@ function initCopyButtons() {
         } catch { /* text stays selected for manual copy */ }
       }
     });
+  });
+}
+
+/* interactive lesson widgets: the illustrations that teach by touch */
+function initLessonWidgets() {
+  initChatExplorer();
+  initContextSim();
+  initPersonaSwitch();
+  initMcpBoard();
+  initAgentRunner();
+}
+
+/* lesson 1: numbered hotspots over the drawn chat UI */
+function initChatExplorer() {
+  const widget = document.getElementById("chatxWidget");
+  if (!widget) return;
+  const note = document.getElementById("chatxNote");
+  const SPOTS = {
+    1: "Полето за писане. Тук става всичко: пишеш като на човек, Enter изпраща.",
+    2: "Кламерчето. Прикачаш файлове, снимки, документи. Половината сила е тук.",
+    3: "Изборът на модел: „по-бърз“ срещу „по-умен“. Стандартният е добре за начало.",
+    4: "Нов чат. Нова тема = нов чат. Най-подценяваният бутон на екрана.",
+    5: "Историята. Всеки разговор се пази, върни се към него и след месец."
+  };
+  widget.querySelectorAll(".chatx__spot").forEach((spot) => {
+    spot.addEventListener("click", () => {
+      const id = spot.dataset.spot;
+      widget.querySelectorAll(".chatx__spot").forEach((s) => s.classList.toggle("is-active", s === spot));
+      widget.querySelectorAll("[data-spot-zone]").forEach((z) => z.classList.toggle("is-lit", z.dataset.spotZone === id));
+      note.textContent = SPOTS[id];
+    });
+  });
+}
+
+/* lesson 2: drag the slider, watch early messages fall out of context */
+function initContextSim() {
+  const slider = document.getElementById("ctxSlider");
+  if (!slider) return;
+  const msgs = [...document.querySelectorAll(".ctxsim__msg")];
+  const note = document.getElementById("ctxNote");
+  const NOTES = [
+    "Кратък разговор: моделът вижда всичко.",
+    "Разговорът расте: най-старото започва да се губи.",
+    "Началото вече е извън прозореца. „Онази отстъпка“? Той не помни за нея.",
+    "Време е за нов чат: обобщи същината и я пренеси."
+  ];
+  slider.addEventListener("input", () => {
+    const v = +slider.value;
+    const forgotten = Math.floor((v / 101) * 5); // up to 4 of 6 messages
+    msgs.forEach((m) => m.classList.toggle("is-forgotten", +m.dataset.age > 5 - forgotten));
+    note.textContent = NOTES[Math.min(3, Math.floor(v / 26))];
+  });
+}
+
+/* lesson 3: same question, three personas, three answers */
+function initPersonaSwitch() {
+  const widget = document.getElementById("personaWidget");
+  if (!widget) return;
+  const answer = document.getElementById("personaAnswer");
+  const ANSWERS = {
+    editor: "Планът е с 40% по-дълъг от нужното. Точки 3 и 5 казват едно и също. Режа ги, ето стегнатата версия.",
+    teacher: "Хубава основа! Хайде стъпка по стъпка: първо кой е клиентът ти? Като отговорим на това, останалото ще се подреди само.",
+    investor: "Каква е месечната ти изгода при наем 2400 лв.? Колко торти на ден покриват разходите? Върни се с числата."
+  };
+  widget.querySelectorAll(".personax__pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      widget.querySelectorAll(".personax__pill").forEach((p) => p.classList.toggle("is-active", p === pill));
+      answer.classList.add("is-swapping");
+      setTimeout(() => {
+        answer.textContent = ANSWERS[pill.dataset.persona];
+        answer.classList.remove("is-swapping");
+      }, 250);
+    });
+  });
+}
+
+/* lesson 4: flip switches, capabilities light up */
+function initMcpBoard() {
+  const widget = document.getElementById("mcpWidget");
+  if (!widget) return;
+  const result = document.getElementById("mcpResult");
+  const CAPS = {
+    cal: "да види кога си свободен и да пази часове",
+    mail: "да чете и подготвя писма вместо теб",
+    files: "да рови в документите ти и да отговаря от тях"
+  };
+  const update = () => {
+    const on = [...widget.querySelectorAll("input:checked")].map((i) => CAPS[i.dataset.mcp]);
+    result.textContent = on.length
+      ? "Сега може: " + on.join("; ") + "."
+      : "Сега може: само да си говорите. Включи нещо!";
+  };
+  widget.querySelectorAll("input[type=checkbox]").forEach((box) => box.addEventListener("change", update));
+}
+
+/* lesson 5: press play, the agent works through its steps */
+function initAgentRunner() {
+  const btn = document.getElementById("agentRun");
+  if (!btn) return;
+  const steps = [...document.querySelectorAll("#agentSteps [data-step]")];
+  const done = document.getElementById("agentDone");
+  let timers = [];
+
+  btn.addEventListener("click", () => {
+    timers.forEach(clearTimeout);
+    timers = [];
+    steps.forEach((s) => s.classList.remove("is-doing", "is-done"));
+    done.classList.remove("is-visible");
+    btn.disabled = true;
+
+    const stepTime = reduced ? 10 : 950;
+    steps.forEach((step, i) => {
+      timers.push(setTimeout(() => {
+        if (i > 0) steps[i - 1].classList.replace("is-doing", "is-done");
+        step.classList.add("is-doing");
+      }, i * stepTime));
+    });
+    timers.push(setTimeout(() => {
+      steps[steps.length - 1].classList.replace("is-doing", "is-done");
+      done.classList.add("is-visible");
+      btn.disabled = false;
+      btn.textContent = "↺ пусни пак";
+    }, steps.length * stepTime));
   });
 }
 
