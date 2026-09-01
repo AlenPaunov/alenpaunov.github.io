@@ -24,6 +24,7 @@ const I18N = {
     "nav.appearances": "Appearances",
     "nav.contact": "Contact",
     "nav.gallery": "Gallery ✦",
+    "nav.notebook": "AI Notebook ✎",
 
     "hero.kicker": "// AI Integration Strategist & Educational Expert",
     "hero.sub": "I help companies and educators turn AI from hype into",
@@ -133,6 +134,7 @@ const I18N = {
     "nav.appearances": "Участия",
     "nav.contact": "Контакт",
     "nav.gallery": "Галерия ✦",
+    "nav.notebook": "AI Тетрадката ✎",
 
     "hero.kicker": "// AI стратег по интеграция & експерт в образованието",
     "hero.sub": "Помагам на компании и преподаватели да превърнат AI от мода в",
